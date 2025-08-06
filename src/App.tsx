@@ -3,7 +3,15 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import ChatWidget from "./components/ChatWidget";
+import Home from "./pages/Home";
+import AboutUs from "./pages/AboutUs";
+import Menu from "./pages/Menu";
+import Outlets from "./pages/Outlets";
+import Franchise from "./pages/Franchise";
+import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -14,11 +22,22 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="min-h-screen flex flex-col">
+          <Header />
+          <main className="flex-1">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/menu" element={<Menu />} />
+              <Route path="/outlets" element={<Outlets />} />
+              <Route path="/franchise" element={<Franchise />} />
+              <Route path="/contact-us" element={<ContactUs />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+          <ChatWidget />
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
