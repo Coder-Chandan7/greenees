@@ -27,7 +27,7 @@ const Outlets = () => {
     {
       name: "Treat Food Mall (TFM Main Branch)",
       address: "Shop 1 & 2, The Park Food Court, Opp: SVNIT, Ichhanath, Umra, Surat - 395007",
-      phone: "+91 98252 53920",
+      phone: "+91 12345 67890",
       mapUrl: "https://maps.app.goo.gl/EwgC7Bm9d5HvA9ZP7",
       timing: "8:00 AM - 11:00 PM",
       isMain: true
@@ -35,77 +35,77 @@ const Outlets = () => {
     {
       name: "Ghod-Dod Road",
       address: "Ghod-Dod Road, Surat",
-      phone: "+91 98252 53920",
+      phone: "+91 12345 67890",
       mapUrl: "https://goo.gl/maps/YTM8WqR6L1FJToqx5",
       timing: "8:00 AM - 11:00 PM"
     },
     {
       name: "Adajan",
       address: "Adajan, Surat",
-      phone: "+91 98252 53920", 
+      phone: "+91 12345 67890", 
       mapUrl: "https://goo.gl/maps/SBAf6UugxLXjCWQ5A",
       timing: "8:00 AM - 11:00 PM"
     },
     {
       name: "Pal",
       address: "Pal, Surat",
-      phone: "+91 98252 53920",
+      phone: "+91 12345 67890",
       mapUrl: "https://goo.gl/maps/ePjBGpj113NMSfy78",
       timing: "8:00 AM - 11:00 PM"
     },
     {
       name: "Navsari",
       address: "Navsari, Gujarat",
-      phone: "+91 98252 53920",
+      phone: "+91 12345 67890",
       mapUrl: "https://goo.gl/maps/MztM9aexaaUG9JtN8",
       timing: "8:00 AM - 11:00 PM"
     },
     {
       name: "VIP Road-2",
       address: "VIP Road-2, Surat",
-      phone: "+91 98252 53920",
+      phone: "+91 12345 67890",
       mapUrl: "https://goo.gl/maps/R8V9h2Q1tBhbRDNz8",
       timing: "8:00 AM - 11:00 PM"
     },
     {
       name: "Ugat Canal Road",
       address: "Ugat Canal Road, Surat",
-      phone: "+91 98252 53920",
+      phone: "+91 12345 67890",
       mapUrl: "https://maps.app.goo.gl/H8fKRa11gLrfRvkA6",
       timing: "8:00 AM - 11:00 PM"
     },
     {
       name: "Pal Gauravpath Road",
       address: "Pal Gauravpath Road, Surat",
-      phone: "+91 98252 53920",
+      phone: "+91 12345 67890",
       mapUrl: "https://goo.gl/maps/example",
       timing: "8:00 AM - 11:00 PM"
     },
     {
       name: "Bhestan",
       address: "Bhestan, Surat",
-      phone: "+91 98252 53920",
+      phone: "+91 12345 67890",
       mapUrl: "https://goo.gl/maps/example",
       timing: "8:00 AM - 11:00 PM"
     },
     {
       name: "Sarthana Nature Park",
       address: "Sarthana Nature Park, Surat",
-      phone: "+91 98252 53920", 
+      phone: "+91 12345 67890", 
       mapUrl: "https://goo.gl/maps/example",
       timing: "8:00 AM - 11:00 PM"
     },
     {
       name: "Yogi Chowk",
       address: "Yogi Chowk, Surat",
-      phone: "+91 98252 53920",
+      phone: "+91 12345 67890",
       mapUrl: "https://goo.gl/maps/example",
       timing: "8:00 AM - 11:00 PM"
     },
     {
       name: "Ramnagar", 
       address: "Ramnagar, Surat",
-      phone: "+91 98252 53920",
+      phone: "+91 12345 67890",
       mapUrl: "https://goo.gl/maps/example",
       timing: "8:00 AM - 11:00 PM"
     }
@@ -127,9 +127,9 @@ const Outlets = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto px-4 text-center"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6">Grenee Outlets</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6">Greenees Outlets</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Find your nearest Grenee outlet and enjoy our delicious chai and snacks. 
+            Find your nearest Greenees outlet and enjoy our delicious chai and snacks. 
             We're expanding across Gujarat to serve you better!
           </p>
         </motion.div>

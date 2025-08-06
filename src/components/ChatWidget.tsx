@@ -9,7 +9,7 @@ const ChatWidget = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hi! Welcome to Grenee! 👋 How can I help you today?",
+      text: "Hi! Welcome to Greenees! 👋 How can I help you today?",
       isBot: true,
       timestamp: new Date()
     }
@@ -40,7 +40,7 @@ const ChatWidget = () => {
     setTimeout(() => {
       const botResponse = {
         id: messages.length + 2,
-        text: "Thanks for your message! Our team will get back to you soon. For immediate assistance, please call us at +91 98252 53920.",
+        text: "Thanks for your message! Our team will get back to you soon. For immediate assistance, please call us at +91 12345 67890.",
         isBot: true,
         timestamp: new Date()
       };
@@ -90,7 +90,7 @@ const ChatWidget = () => {
                   <MessageCircle className="h-4 w-4" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">Grenee Support</h3>
+                  <h3 className="font-semibold">Greenees Support</h3>
                   <p className="text-xs opacity-90">Online now</p>
                 </div>
               </div>

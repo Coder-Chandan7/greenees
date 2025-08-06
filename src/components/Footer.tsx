@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, MapPin, Phone, Mail } from 'lucide-react';
-import greneLogo from '@/assets/grenee-logo.png';
+import greneLogo from '@/assets/greenees-logo.jpeg';
 
 const Footer = () => {
   const containerVariants = {
@@ -36,7 +36,7 @@ const Footer = () => {
           {/* Brand Section */}
           <motion.div variants={itemVariants} className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
-              <img src={greneLogo} alt="Grenee" className="h-12 w-auto brightness-0 invert" />
+              <img src={greneLogo} alt="Greenees" className="h-12 w-auto" />
             </Link>
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
               Serving the finest chai and delicious snacks since 2009. 
@@ -44,7 +44,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://www.facebook.com/greneefastfood" 
+                href="https://www.facebook.com/greeneesfastfood" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
@@ -52,7 +52,7 @@ const Footer = () => {
                 <Facebook className="h-5 w-5" />
               </a>
               <a 
-                href="https://www.instagram.com/grenee.surat/" 
+                href="https://www.instagram.com/greenees.surat/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
@@ -100,19 +100,19 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary-foreground/80" />
                 <a 
-                  href="tel:+919825253920"
+                  href="tel:+91 1234567890"
                   className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  +91 98252 53920
+                  +91 123 456 7890
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary-foreground/80" />
                 <a 
-                  href="mailto:greneesurat@gmail.com"
+                  href="mailto:greeneessurat@gmail.com"
                   className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  greneesurat@gmail.com
+                  greeneessurat@gmail.com
                 </a>
               </div>
             </div>
@@ -139,7 +139,7 @@ const Footer = () => {
           className="border-t border-primary-foreground/20 mt-8 pt-6 text-center"
         >
           <p className="text-sm text-primary-foreground/80">
-            © 2024 Grenee. All rights reserved. | Made with ❤️ for chai lovers
+            © 2024 Greenees. All rights reserved. | Made with ❤️ for chai lovers
           </p>
         </motion.div>
       </motion.div>

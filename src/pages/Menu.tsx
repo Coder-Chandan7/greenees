@@ -28,7 +28,7 @@ const Menu = () => {
       name: "Chai & Beverages",
       emoji: "🍵",
       items: [
-        { name: "Grenee Special Chai", price: "₹15", popular: true },
+        { name: "Greenees Special Chai", price: "₹15", popular: true },
         { name: "Green Leaf Pudina Chai", price: "₹18", special: true },
         { name: "Masala Chai", price: "₹15" },
         { name: "Ginger Chai", price: "₹16" },
@@ -125,7 +125,7 @@ const Menu = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <Tabs defaultValue="chai" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 lg:grid-cols-6 mb-12">
+            <TabsList className="grid w-full h-full grid-cols-3 lg:grid-cols-6 mb-12">
               {Object.entries(menuCategories).map(([key, category]) => (
                 <TabsTrigger key={key} value={key} className="text-xs lg:text-sm">
                   <span className="mr-1">{category.emoji}</span>

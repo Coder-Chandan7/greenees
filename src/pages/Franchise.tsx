@@ -129,7 +129,7 @@ const Franchise = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto px-4 text-center"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Why Grenee?</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Why Greenees?</h1>
           <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
             Join Gujarat's fastest-growing tea chain and become part of our success story. 
             Low investment, high returns, and complete support from day one.
@@ -138,7 +138,7 @@ const Franchise = () => {
             <Button asChild size="lg" variant="secondary">
               <a href="tel:+919825253920" className="flex items-center">
                 <Phone className="mr-2 h-5 w-5" />
-                Call Us: +91 98252 53920
+                Call Us: +91 12345 67890
               </a>
             </Button>
             <Button 
@@ -165,7 +165,7 @@ const Franchise = () => {
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">Franchise Benefits</h2>
-            <p className="text-xl text-muted-foreground">Why choose Grenee for your business venture</p>
+            <p className="text-xl text-muted-foreground">Why choose Greenees for your business venture</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -378,7 +378,7 @@ const Franchise = () => {
               {
                 name: "Rajesh Patel",
                 location: "Adajan Franchise",
-                quote: "Best decision I made! Grenee's support system is incredible and the returns are fantastic."
+                quote: "Best decision I made! Greenees's support system is incredible and the returns are fantastic."
               },
               {
                 name: "Priya Shah",

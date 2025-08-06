@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import greneLogo from '@/assets/grenee-logo.png';
+import greneLogo from '@/assets/greenees-logo.jpeg';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,7 +31,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src={greneLogo} alt="Grenee" className="h-12 w-auto" />
+            <img src={greneLogo} alt="Greenees" className="h-12 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -42,7 +42,7 @@ const Header = () => {
                 to={item.path}
                 className={`relative font-medium transition-colors duration-200 ${
                   isActive(item.path)
-                    ? 'text-primary-foreground'
+                    ? 'text-white'
                     : 'text-primary-foreground/80 hover:text-primary-foreground'
                 }`}
               >

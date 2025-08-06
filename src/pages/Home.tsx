@@ -11,6 +11,7 @@ import heroSnacksSpreadImage from '@/assets/hero-snacks-spread.jpg';
 import heroFoodTruckImage from '@/assets/hero-food-truck.jpg';
 import steamIdliImage from '@/assets/steam-idli.jpg';
 import cheesePizzaImage from '@/assets/cheese-pizza.jpg';
+import AutoPlay from 'embla-carousel-autoplay';
 
 const Home = () => {
   const containerVariants = {
@@ -89,8 +90,8 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen">
-        <Carousel className="h-full">
-          <CarouselContent className="h-full">
+        <Carousel className="h-full" opts={{loop: true,}}>
+          <CarouselContent className="h-full" >
             {heroImages.map((hero, index) => (
               <CarouselItem key={index} className="h-screen">
                 <div 
@@ -133,7 +134,7 @@ const Home = () => {
                           <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
                       </Button>
-                      <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-foreground">
+                      <Button asChild variant="outline" size="lg" className="border-white text-black hover:bg-white hover:text-foreground">
                         <Link to="/outlets">Find Outlets</Link>
                       </Button>
                     </motion.div>
@@ -241,7 +242,7 @@ const Home = () => {
           <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {[
               {
-                name: "Grenee Special Chai",
+                name: "Greenees Special Chai",
                 image: heroChaiImage,
                 description: "Our signature green leaf-pudina chai"
               },

@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import AutoPlay from 'embla-carousel-autoplay';
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -56,12 +57,17 @@ const Carousel = React.forwardRef<
     },
     ref
   ) => {
+    const autoplayPlugin = AutoPlay({
+      delay: 4000, 
+      stopOnFocusIn: true,
+    })
+
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
         axis: orientation === "horizontal" ? "x" : "y",
       },
-      plugins
+      [autoplayPlugin, ...(plugins || [])]
     )
     const [canScrollPrev, setCanScrollPrev] = React.useState(false)
     const [canScrollNext, setCanScrollNext] = React.useState(false)

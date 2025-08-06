@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Grenee Design System - Inspired by vibrant yellow and warm colors */
+/* Greenees Design System - Inspired by vibrant yellow and warm colors */
 
 @layer base {
   :root {
-    /* Grenee Brand Colors */
+    /* Greenees Brand Colors */
     --background: 45 100% 96%;
     --foreground: 30 30% 15%;
 

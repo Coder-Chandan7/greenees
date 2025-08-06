@@ -24,21 +24,21 @@ const AboutUs = () => {
 
   const founders = [
     {
-      name: "Snehal Modi",
+      name: "Ram Srivasan",
       role: "Co-Founder",
-      description: "Experience of more than 15 years in the Food Industry. He manages Finance, Purchase & Negotiation at Grenee.",
+      description: "Experience of more than 15 years in the Food Industry. He manages Finance, Purchase & Negotiation at Greenees.",
       image: "👨‍💼"
     },
     {
-      name: "Sunil Dubey", 
+      name: "Rajesh Dubey", 
       role: "Co-Founder",
-      description: "Handles Operations, Marketing & Business Development. His vision drives Grenee's expansion across Gujarat.",
+      description: "Handles Operations, Marketing & Business Development. His vision drives Greenees's expansion across Gujarat.",
       image: "👨‍💼"
     },
     {
-      name: "Nilay Modi",
+      name: "Keshav Bhatt",
       role: "Co-Founder", 
-      description: "Manages Technology, Innovation & Customer Experience. Focuses on modernizing the Grenee experience.",
+      description: "Manages Technology, Innovation & Customer Experience. Focuses on modernizing the Greenees experience.",
       image: "👨‍💼"
     }
   ];
@@ -115,12 +115,12 @@ const AboutUs = () => {
               </p>
               <p className="text-lg leading-relaxed mb-6">
                 In 2015, they moved to Food Court. It was again one of the first food courts in Surat city. Currently, 
-                'The Park' Food Court has multiple Café & Restaurants and it was all started with Grenee.
+                'The Park' Food Court has multiple Café & Restaurants and it was all started with Greenees.
               </p>
               <p className="text-lg leading-relaxed">
-                People in Surat started loving Grenee Special Chai & Idli. Green Leaf-Pudina tea was first ever in Surat. 
-                Also, Grenee's Idli was famous for its softness and ease of digestion. Surties started demanding more 
-                branches/outlets as they have to travel far to visit Grenee and BOOM!! The Franchise idea popped in.
+                People in Surat started loving Greenees Special Chai & Idli. Green Leaf-Pudina tea was first ever in Surat. 
+                Also, Greenees's Idli was famous for its softness and ease of digestion. Surties started demanding more 
+                branches/outlets as they have to travel far to visit Greenees and BOOM!! The Franchise idea popped in.
               </p>
             </div>
           </motion.div>
@@ -176,7 +176,7 @@ const AboutUs = () => {
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">Meet the Founders</h2>
-            <p className="text-xl text-muted-foreground">The visionaries behind Grenee's success</p>
+            <p className="text-xl text-muted-foreground">The visionaries behind Greenees's success</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

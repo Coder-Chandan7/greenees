@@ -46,14 +46,14 @@ const ContactUs = () => {
     {
       icon: Phone,
       title: "Phone",
-      content: "+91 98252 53920",
+      content: "+91 12345 67890",
       link: "tel:+919825253920"
     },
     {
       icon: Mail,
       title: "Email",
-      content: "greneesurat@gmail.com",
-      link: "mailto:greneesurat@gmail.com"
+      content: "greeneessurat@gmail.com",
+      link: "mailto:greeneessurat@gmail.com"
     },
     {
       icon: Clock,
@@ -66,13 +66,13 @@ const ContactUs = () => {
     {
       icon: Facebook,
       name: "Facebook",
-      url: "https://www.facebook.com/greneefastfood",
+      url: "https://www.facebook.com/greeneesfastfood",
       color: "text-blue-600"
     },
     {
       icon: Instagram,
       name: "Instagram", 
-      url: "https://www.instagram.com/grenee.surat/",
+      url: "https://www.instagram.com/greenees.surat/",
       color: "text-pink-600"
     }
   ];
@@ -289,7 +289,7 @@ const ContactUs = () => {
                       <a href="https://www.zomato.com/greenee-food-truck" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-primary transition-colors">
                         Order on Zomato
                       </a>
-                      <a href="https://www.swiggy.com/restaurants/grenee-the-park-opp-svnit-athwa-surat-76479" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-primary transition-colors">
+                      <a href="https://www.swiggy.com/restaurants/greenees-the-park-opp-svnit-athwa-surat-76479" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-primary transition-colors">
                         Order on Swiggy
                       </a>
                       <a href="https://wa.me/9825253920" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-primary transition-colors">
