@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Coffee, MapPin, Users, Star, ChefHat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import heroChaiImage from '@/assets/hero-chai.jpg';
+import heroTeaSpicesImage from '@/assets/hero-tea-spices.jpg';
+import heroIdliFeastImage from '@/assets/hero-idli-feast.jpg';
+import heroSnacksSpreadImage from '@/assets/hero-snacks-spread.jpg';
+import heroFoodTruckImage from '@/assets/hero-food-truck.jpg';
 import steamIdliImage from '@/assets/steam-idli.jpg';
 import cheesePizzaImage from '@/assets/cheese-pizza.jpg';
 
@@ -45,6 +50,34 @@ const Home = () => {
     }
   ];
 
+  const heroImages = [
+    {
+      image: heroChaiImage,
+      title: "Chalo Chai Ho Jaaye!",
+      subtitle: "Gujarat's first food truck serving authentic chai since 2009"
+    },
+    {
+      image: heroTeaSpicesImage,
+      title: "Authentic Flavors",
+      subtitle: "Traditional spices and perfect brewing techniques"
+    },
+    {
+      image: heroIdliFeastImage,
+      title: "Fresh & Delicious",
+      subtitle: "Soft idlis made fresh every day"
+    },
+    {
+      image: heroSnacksSpreadImage,
+      title: "Variety of Snacks",
+      subtitle: "Crispy pakoras, samosas and more delightful treats"
+    },
+    {
+      image: heroFoodTruckImage,
+      title: "Food Truck Pioneer",
+      subtitle: "South Gujarat's first mobile food experience"
+    }
+  ];
+
   const stats = [
     { number: "15+", label: "Years Experience" },
     { number: "10+", label: "Outlets" },
@@ -55,55 +88,67 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section 
-        className="relative h-screen flex items-center justify-center bg-cover bg-center"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${heroChaiImage})`
-        }}
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-center text-white px-4"
-        >
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-6"
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Chalo Chai Ho Jaaye!
-          </motion.h1>
-          <motion.p 
-            className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            Gujarat's first food truck serving authentic chai and delicious snacks since 2009
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="space-x-4"
-          >
-            <Button asChild size="lg" className="btn-primary">
-              <Link to="/menu">
-                Explore Full Menu
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-foreground">
-              <Link to="/outlets">Find Outlets</Link>
-            </Button>
-          </motion.div>
-        </motion.div>
+      <section className="relative h-screen">
+        <Carousel className="h-full">
+          <CarouselContent className="h-full">
+            {heroImages.map((hero, index) => (
+              <CarouselItem key={index} className="h-screen">
+                <div 
+                  className="relative h-full flex items-center justify-center bg-cover bg-center"
+                  style={{
+                    backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${hero.image})`
+                  }}
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="text-center text-white px-4"
+                  >
+                    <motion.h1 
+                      className="text-5xl md:text-7xl font-bold mb-6"
+                      initial={{ scale: 0.8 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                      {hero.title}
+                    </motion.h1>
+                    <motion.p 
+                      className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5 }}
+                    >
+                      {hero.subtitle}
+                    </motion.p>
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.8 }}
+                      className="space-x-4"
+                    >
+                      <Button asChild size="lg" className="btn-primary">
+                        <Link to="/menu">
+                          Explore Full Menu
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </Link>
+                      </Button>
+                      <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-foreground">
+                        <Link to="/outlets">Find Outlets</Link>
+                      </Button>
+                    </motion.div>
+                  </motion.div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="left-4 bg-white/20 border-white/30 text-white hover:bg-white/30" />
+          <CarouselNext className="right-4 bg-white/20 border-white/30 text-white hover:bg-white/30" />
+        </Carousel>
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
         >
