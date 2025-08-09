@@ -311,7 +311,7 @@ const Home = () => {
             <Button asChild size="lg" variant="secondary">
               <Link to="/franchise">Learn More</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+            <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary">
               <Link to="/contact-us">Contact Us</Link>
             </Button>
           </div>

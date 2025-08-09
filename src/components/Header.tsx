@@ -40,7 +40,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative font-medium transition-colors duration-200 ${
+                className={`relative text-white font-medium transition-colors duration-200 ${
                   isActive(item.path)
                     ? 'text-white'
                     : 'text-primary-foreground/80 hover:text-primary-foreground'
@@ -50,7 +50,7 @@ const Header = () => {
                 {isActive(item.path) && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary-foreground"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-white"
                     initial={false}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   />

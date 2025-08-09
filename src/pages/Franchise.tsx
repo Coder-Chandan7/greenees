@@ -122,7 +122,7 @@ const Franchise = () => {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-hero text-primary-foreground">
+      <section className="py-20 bg-gradient-primary text-primary-foreground">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ const Franchise = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+              className="border-primary-foreground text-primary hover:bg-primary-foreground hover:text-primary"
               onClick={() => document.getElementById('franchise-form')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Get a Callback

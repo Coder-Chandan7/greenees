@@ -17,10 +17,10 @@
     --popover-foreground: 30 30% 15%;
 
     /* Yellow Primary Theme */
-    --primary: 45 100% 50%;
-    --primary-foreground: 30 30% 15%;
-    --primary-dark: 35 90% 40%;
-    --primary-light: 50 100% 85%;
+    --primary: 302 98% 18%;;
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 302 90% 40%;
+    --primary-light: 302 100% 85%;
 
     /* Green Secondary (for tea elements) */
     --secondary: 120 60% 45%;
@@ -28,7 +28,7 @@
     --secondary-light: 120 40% 85%;
 
     /* Warm neutrals */
-    --muted: 45 30% 92%;
+    --muted: 302 30% 92%;
     --muted-foreground: 30 20% 45%;
 
     --accent: 25 80% 55%;

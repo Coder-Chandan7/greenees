@@ -275,7 +275,7 @@ const Outlets = () => {
             <Button asChild size="lg" variant="secondary">
               <a href="tel:+919825253920">Call Us Now</a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+            <Button asChild size="lg" variant="outline" className="border-primary-foreground text-primary">
               <a href="/contact-us">Contact Us</a>
             </Button>
           </div>
