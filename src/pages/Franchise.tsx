@@ -120,7 +120,7 @@ const Franchise = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-primary text-primary-foreground">
         <motion.div

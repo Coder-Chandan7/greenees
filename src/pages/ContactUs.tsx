@@ -71,7 +71,7 @@ const ContactUs = () => {
     },
     {
       icon: Instagram,
-      name: "Instagram", 
+      name: "Instagram",
       url: "https://www.instagram.com/greenees.surat/",
       color: "text-pink-600"
     }
@@ -79,7 +79,7 @@ const ContactUs = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.phone || !formData.email) {
       toast({
         title: "Missing Information",
@@ -107,7 +107,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-warm">
         <motion.div
@@ -118,7 +118,7 @@ const ContactUs = () => {
         >
           <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6">Contact Us</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Have questions about our menu, outlets, or franchise opportunities? 
+            Have questions about our menu, outlets, or franchise opportunities?
             We'd love to hear from you! Get in touch with us today.
           </p>
         </motion.div>
@@ -148,7 +148,7 @@ const ContactUs = () => {
                     </div>
                     <h3 className="font-semibold text-lg text-primary mb-3">{info.title}</h3>
                     {info.link ? (
-                      <a 
+                      <a
                         href={info.link}
                         target={info.link.startsWith('http') ? '_blank' : undefined}
                         rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
@@ -244,7 +244,7 @@ const ContactUs = () => {
               {/* Map */}
               <Card className="card-warm">
                 <CardContent className="p-0">
-                  <div className="h-64 bg-muted rounded-lg flex items-center justify-center">
+                  {/* <div className="h-64 bg-muted rounded-lg flex items-center justify-center">
                     <div className="text-center">
                       <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
                       <p className="text-muted-foreground">
@@ -252,7 +252,7 @@ const ContactUs = () => {
                       </p>
                       <Button asChild className="mt-4" variant="outline">
                         <a 
-                          href="https://maps.app.goo.gl/EwgC7Bm9d5HvA9ZP7"
+                          href="https://maps.app.goo.gl/RUDSm8tEEdffSd7S6"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -260,7 +260,18 @@ const ContactUs = () => {
                         </a>
                       </Button>
                     </div>
-                  </div>
+                  </div> */}
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.3008030121396!2d72.7782941!3d21.140424199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0530debc20f4f%3A0xf811f46574507566!2sGreenees%20Fast%20Food!5e0!3m2!1sen!2sin!4v1755263889106!5m2!1sen!2sin"
+                    width="100%"
+                    height="400"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className='rounded-lg'
+                    allowFullScreen
+                    style={{ border: 0 }}
+                    >
+                  </iframe>
                 </CardContent>
               </Card>
 

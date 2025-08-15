@@ -12,6 +12,7 @@ import heroFoodTruckImage from '@/assets/hero-food-truck.jpg';
 import steamIdliImage from '@/assets/steam-idli.jpg';
 import cheesePizzaImage from '@/assets/cheese-pizza.jpg';
 import AutoPlay from 'embla-carousel-autoplay';
+import { useEffect, useRef, useState } from 'react';
 
 const Home = () => {
   const containerVariants = {
@@ -79,22 +80,79 @@ const Home = () => {
     }
   ];
 
+  const [counters, setCounters] = useState({
+    years: 0,
+    outlets: 0,
+    customers: 0,
+    satisfaction: 0
+  });
+  const counterRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          startCounting();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const startCounting = () => {
+    const duration = 2000;
+    const steps = 50;
+    const stepTime = duration / steps;
+
+    let currentStep = 0;
+
+    const timer = setInterval(() => {
+      currentStep++;
+      
+      const progress = currentStep / steps;
+      
+      setCounters({
+        years: Math.min(Math.round(10 * progress), 15),
+        outlets: Math.min(Math.round(10 * progress), 10),
+        customers: Math.min(Math.round(50000 * progress), 50000),
+        satisfaction: Math.min(Math.round(100 * progress), 100)
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+      }
+    }, stepTime);
+  };
+
   const stats = [
-    { number: "15+", label: "Years Experience" },
-    { number: "10+", label: "Outlets" },
-    { number: "50K+", label: "Happy Customers" },
-    { number: "100%", label: "Satisfaction" }
+    { number: counters.years + "+", label: "Years Experience" },
+    { number: counters.outlets + "+", label: "Outlets" },
+    { number: (counters.customers >= 30000 ? "30,000" : counters.customers.toLocaleString()) + "+", label: "Happy Customers" },
+    { number: counters.satisfaction + "%", label: "Satisfaction" }
   ];
+
+  // const stats = [
+  //   { number: "15+", label: "Years Experience" },
+  //   { number: "10+", label: "Outlets" },
+  //   { number: "50K+", label: "Happy Customers" },
+  //   { number: "100%", label: "Satisfaction" }
+  // ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen">
-        <Carousel className="h-full" opts={{loop: true,}}>
+        <Carousel className="h-full" opts={{ loop: true, }}>
           <CarouselContent className="h-full" >
             {heroImages.map((hero, index) => (
               <CarouselItem key={index} className="h-screen">
-                <div 
+                <div
                   className="relative h-full flex items-center justify-center bg-cover bg-center"
                   style={{
                     backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${hero.image})`
@@ -106,7 +164,7 @@ const Home = () => {
                     transition={{ duration: 1 }}
                     className="text-center text-white px-4"
                   >
-                    <motion.h1 
+                    <motion.h1
                       className="text-5xl md:text-7xl font-bold mb-6"
                       initial={{ scale: 0.8 }}
                       animate={{ scale: 1 }}
@@ -114,7 +172,7 @@ const Home = () => {
                     >
                       {hero.title}
                     </motion.h1>
-                    <motion.p 
+                    <motion.p
                       className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -126,7 +184,7 @@ const Home = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.8 }}
-                      className="flex flex-col sm:flex-row gap-4 sm:gap-4 sm:space-x-0"
+                      className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
                       <Button asChild size="lg" className="btn-primary">
                         <Link to="/menu">
@@ -160,7 +218,7 @@ const Home = () => {
       </section>
 
       {/* Our Categories Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-gradient-warm">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -226,8 +284,8 @@ const Home = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">ABOUT US</h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Launched in 2009 as the very first 'Food Truck' in South Gujarat. The idea was inspired by Europe 
-                and the concept was new at that time. Mr. Snehal Modi & Mr. Sunil Dubey saw the opportunity which 
+                Launched in 2009 as the very first 'Food Truck' in South Gujarat. The idea was inspired by Europe
+                and the concept was new at that time. Mr. Snehal Modi & Mr. Sunil Dubey saw the opportunity which
                 was missed by many Gujarati businessmen.
               </p>
             </div>
@@ -257,7 +315,7 @@ const Home = () => {
           </motion.div>
 
           {/* Stats Section */}
-          <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <motion.div ref={counterRef} variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -305,7 +363,7 @@ const Home = () => {
                   },
                   {
                     name: "Steam Idli",
-                    image: steamIdliImage, 
+                    image: steamIdliImage,
                     description: "Soft and fluffy steamed idlis",
                     price: "₹40"
                   },
@@ -334,7 +392,7 @@ const Home = () => {
                     price: "₹60"
                   }
                 ].map((item, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/4">
+                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/4 py-4">
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
@@ -344,8 +402,8 @@ const Home = () => {
                       className="bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-warm transition-all duration-300"
                     >
                       <div className="aspect-[4/3] bg-muted overflow-hidden">
-                        <img 
-                          src={item.image} 
+                        <img
+                          src={item.image}
                           alt={item.name}
                           className="w-full h-full object-cover"
                         />
@@ -392,56 +450,72 @@ const Home = () => {
               Read what our valued customers have to say about their experience
             </p>
           </motion.div>
-
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "The burgers here are simply the best I've ever had! The ingredients are so fresh, and the taste is out of this world.",
-                name: "John S.",
-                rating: 5
-              },
-              {
-                quote: "I love the commitment to local sourcing. It's great to enjoy such delicious food knowing it supports our community.",
-                name: "Sarah M.",
-                rating: 5
-              },
-              {
-                quote: "Burger Haven is my go-to spot! The atmosphere is always welcoming, and the staff are incredibly friendly. A true gem!",
-                name: "Emily K.",
-                rating: 5
-              }
-            ].map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-card rounded-lg p-6 shadow-soft hover:shadow-warm transition-all duration-300"
-              >
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-6 italic">"{testimonial.quote}"</p>
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
-                    <span className="text-primary-foreground font-bold">
-                      {testimonial.name.charAt(0)}
-                    </span>
-                  </div>
-                  <div className="ml-3">
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <div className="flex items-center">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          <motion.div variants={itemVariants} className="relative">
+            <Carousel className="w-full" opts={{ align: "center", loop: true }} plugins={[AutoPlay({ delay: 3000 })]}>
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {[
+                  {
+                    quote: "The burgers here are simply the best I've ever had! The ingredients are so fresh, and the taste is out of this world.",
+                    name: "John S.",
+                    rating: 5
+                  },
+                  {
+                    quote: "I love the commitment to local sourcing. It's great to enjoy such delicious food knowing it supports our community.",
+                    name: "Sarah M.",
+                    rating: 5
+                  },
+                  {
+                    quote: "Burger Haven is my go-to spot! The atmosphere is always welcoming, and the staff are incredibly friendly. A true gem!",
+                    name: "Emily K.",
+                    rating: 5
+                  },
+                  {
+                    quote: "I love the commitment to local sourcing. It's great to enjoy such delicious food knowing it supports our community.",
+                    name: "Sarah M.",
+                    rating: 5
+                  },
+                  {
+                    quote: "Burger Haven is my go-to spot! The atmosphere is always welcoming, and the staff are incredibly friendly. A true gem!",
+                    name: "Emily K.",
+                    rating: 5
+                  }
+                ].map((testimonial, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 py-4">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.2 }}
+                      viewport={{ once: true }}
+                      className="bg-card rounded-lg p-6 shadow-soft hover:shadow-warm transition-all duration-300 h-full"
+                    >
+                      <div className="flex items-center mb-4">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                        ))}
+                      </div>
+                      <p className="text-muted-foreground mb-6 italic">"{testimonial.quote}"</p>
+                      <div className="flex items-center">
+                        <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
+                          <span className="text-primary-foreground font-bold">
+                            {testimonial.name.charAt(0)}
+                          </span>
+                        </div>
+                        <div className="ml-3">
+                          <p className="font-semibold">{testimonial.name}</p>
+                          <div className="flex items-center">
+                            {[...Array(testimonial.rating)].map((_, i) => (
+                              <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
           </motion.div>
         </motion.div>
       </section>

@@ -36,7 +36,7 @@ const Menu = () => {
     chai: {
       name: "Chai & Beverages",
       emoji: "🍵",
-      images: [heroChaiImage, heroTeaSpicesImage, steamIdliImage, heroSnacksSpreadImage],
+      images: [heroChaiImage, heroTeaSpicesImage, steamIdliImage, heroSnacksSpreadImage,heroChaiImage, heroTeaSpicesImage, steamIdliImage, heroSnacksSpreadImage],
       items: [
         { name: "Greenees Special Chai", price: "₹15", popular: true },
         { name: "Green Leaf Pudina Chai", price: "₹18", special: true },
@@ -194,7 +194,7 @@ const Menu = () => {
                   </motion.div>
 
                   {/* Menu Items */}
-                  <motion.div 
+                  {/* <motion.div 
                     variants={containerVariants}
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                   >
@@ -224,7 +224,7 @@ const Menu = () => {
                         </div>
                       </motion.div>
                     ))}
-                  </motion.div>
+                  </motion.div> */}
                 </motion.div>
               </TabsContent>
             ))}
@@ -233,7 +233,7 @@ const Menu = () => {
       </section>
 
       {/* Special Notes */}
-      <section className="py-16 bg-muted/50">
+      {/* <section className="py-16 bg-muted/50">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -265,7 +265,7 @@ const Menu = () => {
             </div>
           </div>
         </motion.div>
-      </section>
+      </section> */}
     </div>
   );
 };

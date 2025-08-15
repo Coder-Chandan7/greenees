@@ -37,7 +37,7 @@ const Header = () => {
             </div>
             <div className="text-white">
               <h1 className="text-2xl font-bold tracking-wide">Greenees</h1>
-              <p className="text-xs text-primary-foreground/80 -mt-1">Food Truck</p>
+              <p className="text-xs text-primary-foreground/80 -mt-1">Fast Food</p>
             </div>
           </Link>
 

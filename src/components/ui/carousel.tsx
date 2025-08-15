@@ -58,7 +58,7 @@ const Carousel = React.forwardRef<
     ref
   ) => {
     const autoplayPlugin = AutoPlay({
-      delay: 4000, 
+      delay: 4500, 
       stopOnFocusIn: true,
     })
 

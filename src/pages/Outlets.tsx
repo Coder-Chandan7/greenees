@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Phone, Clock, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 
 const Outlets = () => {
   const containerVariants = {
@@ -118,7 +119,7 @@ const Outlets = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-warm">
         <motion.div
