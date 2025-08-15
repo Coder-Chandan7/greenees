@@ -30,8 +30,15 @@ const Header = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <img src={greneLogo} alt="Greenees" className="h-12 w-auto" />
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="relative">
+              <img src={greneLogo} alt="Greenees" className="h-12 w-auto rounded-lg shadow-md group-hover:shadow-lg transition-shadow" />
+              <div className="absolute inset-0 bg-gradient-primary/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            <div className="text-white">
+              <h1 className="text-2xl font-bold tracking-wide">Greenees</h1>
+              <p className="text-xs text-primary-foreground/80 -mt-1">Food Truck</p>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

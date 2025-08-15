@@ -159,6 +159,60 @@ const Home = () => {
         </motion.div>
       </section>
 
+      {/* Our Categories Section */}
+      <section className="py-20 bg-background">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="container mx-auto px-4"
+        >
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Our Categories</h2>
+            <p className="text-xl text-muted-foreground">
+              Discover our delicious range of fresh food items
+            </p>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            {[
+              { name: "Pizza", description: "14 Restaurants Products", icon: "🍕" },
+              { name: "Broast", description: "4 Restaurants Products", icon: "🍗" },
+              { name: "Chicken", description: "6 Restaurants Products", icon: "🍖" },
+              { name: "Burgers", description: "18 Restaurants Products", icon: "🍔" },
+              { name: "Shakes", description: "23 Restaurants Products", icon: "🥤" },
+              { name: "Sandwiches", description: "11 Restaurants Products", icon: "🥪" },
+              { name: "Pasta", description: "16 Restaurants Products", icon: "🍝" },
+              { name: "Desserts", description: "24 Restaurants Products", icon: "🍰" }
+            ].map((category, index) => (
+              <motion.div
+                key={category.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05 }}
+                className="bg-card rounded-lg p-6 text-center shadow-soft hover:shadow-warm transition-all duration-300 cursor-pointer"
+              >
+                <div className="text-4xl mb-4">{category.icon}</div>
+                <h3 className="text-lg font-semibold mb-2">{category.name}</h3>
+                <p className="text-sm text-muted-foreground">{category.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="text-center">
+            <Button asChild size="lg" className="btn-primary">
+              <Link to="/menu">
+                Explore Menu
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </motion.div>
+        </motion.div>
+      </section>
+
       {/* About Preview Section */}
       <section className="py-20 bg-gradient-warm">
         <motion.div
@@ -223,7 +277,7 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Menu Preview Section */}
+      {/* Popular Menu Section */}
       <section className="py-20 bg-background">
         <motion.div
           variants={containerVariants}
@@ -233,61 +287,161 @@ const Home = () => {
           className="container mx-auto px-4"
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Menu</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Popular Menu</h2>
             <p className="text-xl text-muted-foreground">
-              Discover our delicious range of chai, idlis, and snacks
+              Our most loved dishes that keep customers coming back
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {[
-              {
-                name: "Greenees Special Chai",
-                image: heroChaiImage,
-                description: "Our signature green leaf-pudina chai"
-              },
-              {
-                name: "Steam Idli",
-                image: steamIdliImage, 
-                description: "Soft and fluffy steamed idlis"
-              },
-              {
-                name: "Cheese Pizza",
-                image: cheesePizzaImage,
-                description: "Fresh and cheesy pizza varieties"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-warm transition-all duration-300"
-              >
-                <div className="aspect-square bg-muted overflow-hidden">
-                  <img 
-                    src={item.image} 
-                    alt={item.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{item.name}</h3>
-                  <p className="text-muted-foreground">{item.description}</p>
-                </div>
-              </motion.div>
-            ))}
+          <motion.div variants={itemVariants} className="relative">
+            <Carousel className="w-full" opts={{ align: "start", loop: true }}>
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {[
+                  {
+                    name: "Greenees Special Chai",
+                    image: heroChaiImage,
+                    description: "Our signature green leaf-pudina chai",
+                    price: "₹25"
+                  },
+                  {
+                    name: "Steam Idli",
+                    image: steamIdliImage, 
+                    description: "Soft and fluffy steamed idlis",
+                    price: "₹40"
+                  },
+                  {
+                    name: "Cheese Pizza",
+                    image: cheesePizzaImage,
+                    description: "Fresh and cheesy pizza varieties",
+                    price: "₹150"
+                  },
+                  {
+                    name: "Masala Chai",
+                    image: heroTeaSpicesImage,
+                    description: "Traditional spiced tea blend",
+                    price: "₹20"
+                  },
+                  {
+                    name: "Vada Sambar",
+                    image: heroIdliFeastImage,
+                    description: "Crispy vadas with sambar",
+                    price: "₹35"
+                  },
+                  {
+                    name: "Mixed Pakoras",
+                    image: heroSnacksSpreadImage,
+                    description: "Assorted crispy pakoras",
+                    price: "₹60"
+                  }
+                ].map((item, index) => (
+                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.05 }}
+                      className="bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-warm transition-all duration-300"
+                    >
+                      <div className="aspect-square bg-muted overflow-hidden">
+                        <img 
+                          src={item.image} 
+                          alt={item.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="p-6">
+                        <div className="flex justify-between items-start mb-2">
+                          <h3 className="text-xl font-semibold">{item.name}</h3>
+                          <span className="text-lg font-bold text-primary">{item.price}</span>
+                        </div>
+                        <p className="text-muted-foreground">{item.description}</p>
+                      </div>
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="text-center">
+          <motion.div variants={itemVariants} className="text-center mt-12">
             <Button asChild size="lg" className="btn-primary">
               <Link to="/menu">
                 View Complete Menu
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Customer Feedback Section */}
+      <section className="py-20 bg-gradient-warm">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="container mx-auto px-4"
+        >
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">What Our Happy Customers Say</h2>
+            <p className="text-xl text-muted-foreground">
+              Read what our valued customers have to say about their experience
+            </p>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: "The burgers here are simply the best I've ever had! The ingredients are so fresh, and the taste is out of this world.",
+                name: "John S.",
+                rating: 5
+              },
+              {
+                quote: "I love the commitment to local sourcing. It's great to enjoy such delicious food knowing it supports our community.",
+                name: "Sarah M.",
+                rating: 5
+              },
+              {
+                quote: "Burger Haven is my go-to spot! The atmosphere is always welcoming, and the staff are incredibly friendly. A true gem!",
+                name: "Emily K.",
+                rating: 5
+              }
+            ].map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-card rounded-lg p-6 shadow-soft hover:shadow-warm transition-all duration-300"
+              >
+                <div className="flex items-center mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground mb-6 italic">"{testimonial.quote}"</p>
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
+                    <span className="text-primary-foreground font-bold">
+                      {testimonial.name.charAt(0)}
+                    </span>
+                  </div>
+                  <div className="ml-3">
+                    <p className="font-semibold">{testimonial.name}</p>
+                    <div className="flex items-center">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
       </section>
