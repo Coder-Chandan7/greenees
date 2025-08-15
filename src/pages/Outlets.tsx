@@ -4,6 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 
+
+const gujaratGeoJson = "https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@bcbcba3/geojson/states/gujarat.geojson";
+
 const Outlets = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -25,92 +28,54 @@ const Outlets = () => {
   };
 
   const outlets = [
-    {
-      name: "Treat Food Mall (TFM Main Branch)",
-      address: "Shop 1 & 2, The Park Food Court, Opp: SVNIT, Ichhanath, Umra, Surat - 395007",
-      phone: "+91 12345 67890",
-      mapUrl: "https://maps.app.goo.gl/EwgC7Bm9d5HvA9ZP7",
-      timing: "8:00 AM - 11:00 PM",
-      isMain: true
-    },
-    {
-      name: "Ghod-Dod Road",
-      address: "Ghod-Dod Road, Surat",
-      phone: "+91 12345 67890",
-      mapUrl: "https://goo.gl/maps/YTM8WqR6L1FJToqx5",
-      timing: "8:00 AM - 11:00 PM"
-    },
-    {
-      name: "Adajan",
-      address: "Adajan, Surat",
-      phone: "+91 12345 67890", 
-      mapUrl: "https://goo.gl/maps/SBAf6UugxLXjCWQ5A",
-      timing: "8:00 AM - 11:00 PM"
-    },
-    {
-      name: "Pal",
-      address: "Pal, Surat",
-      phone: "+91 12345 67890",
-      mapUrl: "https://goo.gl/maps/ePjBGpj113NMSfy78",
-      timing: "8:00 AM - 11:00 PM"
-    },
-    {
-      name: "Navsari",
-      address: "Navsari, Gujarat",
-      phone: "+91 12345 67890",
-      mapUrl: "https://goo.gl/maps/MztM9aexaaUG9JtN8",
-      timing: "8:00 AM - 11:00 PM"
-    },
-    {
-      name: "VIP Road-2",
-      address: "VIP Road-2, Surat",
-      phone: "+91 12345 67890",
-      mapUrl: "https://goo.gl/maps/R8V9h2Q1tBhbRDNz8",
-      timing: "8:00 AM - 11:00 PM"
-    },
-    {
-      name: "Ugat Canal Road",
-      address: "Ugat Canal Road, Surat",
-      phone: "+91 12345 67890",
-      mapUrl: "https://maps.app.goo.gl/H8fKRa11gLrfRvkA6",
-      timing: "8:00 AM - 11:00 PM"
-    },
-    {
-      name: "Pal Gauravpath Road",
-      address: "Pal Gauravpath Road, Surat",
-      phone: "+91 12345 67890",
-      mapUrl: "https://goo.gl/maps/example",
-      timing: "8:00 AM - 11:00 PM"
-    },
-    {
-      name: "Bhestan",
-      address: "Bhestan, Surat",
-      phone: "+91 12345 67890",
-      mapUrl: "https://goo.gl/maps/example",
-      timing: "8:00 AM - 11:00 PM"
-    },
-    {
-      name: "Sarthana Nature Park",
-      address: "Sarthana Nature Park, Surat",
-      phone: "+91 12345 67890", 
-      mapUrl: "https://goo.gl/maps/example",
-      timing: "8:00 AM - 11:00 PM"
-    },
-    {
-      name: "Yogi Chowk",
-      address: "Yogi Chowk, Surat",
-      phone: "+91 12345 67890",
-      mapUrl: "https://goo.gl/maps/example",
-      timing: "8:00 AM - 11:00 PM"
-    },
-    {
-      name: "Ramnagar", 
-      address: "Ramnagar, Surat",
-      phone: "+91 12345 67890",
-      mapUrl: "https://goo.gl/maps/example",
-      timing: "8:00 AM - 11:00 PM"
-    }
-  ];
+  {
+    name: "Treat Food Mall (TFM Main Branch)",
+    city: "Surat (Main)",
+    address: "Shop 1 & 2, The Park Food Court, Opp: SVNIT, Ichhanath, Umra, Surat - 395007",
+    phone: "+91 12345 67890",
+    mapUrl: "https://maps.app.goo.gl/EwgC7Bm9d5HvA9ZP7",
+    timing: "8:00 AM - 11:00 PM",
+    coordinates: [72.831062, 21.170240], // Surat official
+    isMain: true
+  },
+  {
+    name: "Ahmedabad Branch",
+    city: "Ahmedabad",
+    address: "Ahmedabad, Gujarat",
+    phone: "+91 12345 67890",
+    mapUrl: "https://goo.gl/maps/your-link-here",
+    timing: "8:00 AM - 11:00 PM",
+    coordinates: [72.587, 23.026] // Ahmedabad
+  },
+  {
+    name: "Vadodara Branch",
+    city: "Vadodara",
+    address: "Vadodara, Gujarat",
+    phone: "+91 12345 67890",
+    mapUrl: "https://goo.gl/maps/your-link-here",
+    timing: "8:00 AM - 11:00 PM",
+    coordinates: [73.16, 22.00] // Vadodara
+  },
+  {
+    name: "Rajkot Branch",
+    city: "Rajkot",
+    address: "Rajkot, Gujarat",
+    phone: "+91 12345 67890",
+    mapUrl: "https://goo.gl/maps/your-link-here",
+    timing: "8:00 AM - 11:00 PM",
+    coordinates: [70.56, 22.18] // Rajkot
+  },
+  {
+    name: "Jamnagar Branch",
+    city: "Jamnagar",
+    address: "Jamnagar, Gujarat",
+    phone: "+91 12345 67890",
+    mapUrl: "https://goo.gl/maps/your-link-here",
+    timing: "8:00 AM - 11:00 PM",
+    coordinates: [70.0667, 22.4729] // Jamnagar
+  }
+];
+
 
   const cities = [
     { name: "Surat", count: 10 },
@@ -130,7 +95,7 @@ const Outlets = () => {
         >
           <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6">Greenees Outlets</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Find your nearest Greenees outlet and enjoy our delicious chai and snacks. 
+            Find your nearest Greenees outlet and enjoy our delicious chai and snacks.
             We're expanding across Gujarat to serve you better!
           </p>
         </motion.div>
@@ -173,6 +138,81 @@ const Outlets = () => {
         </motion.div>
       </section>
 
+      {/* Gujarat tour map */}
+      <section className='py-14 bg-muted/50'>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="container mx-auto px-4"
+        >
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary mb-4">Our Gujarat Tour</h2>
+            <p className="text-muted-foreground">Explore our journey across Gujarat</p>
+          </motion.div>
+          <div className='relative'>
+            <motion.div
+              variants={itemVariants}
+              className='rounded-2xl shadow-xl overflow-hidden'
+            >
+              <div className='h-96 md:h-[500px] relative'>
+                <ComposableMap
+                  projection="geoMercator"
+                  projectionConfig={{ scale: 6000, center: [72.8, 21.5] }}
+                  className="w-full h-full"
+                >
+                  <Geographies geography={gujaratGeoJson}>
+                    {({ geographies }) =>
+                      geographies.map((geo) => (
+                        <Geography
+                          key={geo.rsmKey}
+                          geography={geo}
+                          fill="#E0F7FA"
+                          stroke="#B2EBF2"
+                          strokeWidth={0.5}
+                          style={{
+                            default: {
+                              fill: "#f0fdf4",
+                              stroke: "#22c55e",
+                              strokeWidth: 0.5,
+                              outline: "none",
+                            },
+                            hover: {
+                              fill: "#dcfce7",
+                              stroke: "#16a34a",
+                              strokeWidth: 1,
+                              outline: "none",
+                            },
+                            pressed: {
+                              fill: "#bbf7d0",
+                              stroke: "#15803d",
+                              strokeWidth: 1,
+                              outline: "none",
+                            },
+                          }}
+                        />
+                      ))
+                    }
+                  </Geographies>
+                  {outlets.map((outlet, index) => (
+                    <Marker
+                      key={index}
+                      coordinates={outlet.coordinates}
+                    >
+                      <circle r={4} fill="#FF5722" />
+                      <text textAnchor="middle" y={-10} style={{ fontSize: '12px', fill: '#000' }}>
+                        {outlet.name}
+                      </text>
+                    </Marker>
+                  ))}
+                </ComposableMap>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Outlets Grid */}
       <section className="py-20 bg-muted/50">
         <motion.div
@@ -204,7 +244,7 @@ const Outlets = () => {
                         </span>
                       </div>
                     )}
-                    
+
                     <div className="space-y-4">
                       <div>
                         <h3 className="font-semibold text-lg text-primary mb-2">{outlet.name}</h3>
@@ -218,7 +258,7 @@ const Outlets = () => {
 
                         <div className="flex items-center space-x-2">
                           <Phone className="h-4 w-4 text-primary" />
-                          <a 
+                          <a
                             href={`tel:${outlet.phone}`}
                             className="hover:text-primary transition-colors"
                           >
@@ -233,14 +273,14 @@ const Outlets = () => {
                       </div>
 
                       <div className="pt-4">
-                        <Button 
-                          asChild 
+                        <Button
+                          asChild
                           className="w-full btn-primary"
                           size="sm"
                         >
-                          <a 
-                            href={outlet.mapUrl} 
-                            target="_blank" 
+                          <a
+                            href={outlet.mapUrl}
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-center space-x-2"
                           >
