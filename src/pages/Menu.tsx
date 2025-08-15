@@ -1,9 +1,18 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import heroChaiImage from '@/assets/hero-chai.jpg';
+import heroTeaSpicesImage from '@/assets/hero-tea-spices.jpg';
+import heroIdliFeastImage from '@/assets/hero-idli-feast.jpg';
+import heroSnacksSpreadImage from '@/assets/hero-snacks-spread.jpg';
+import heroFoodTruckImage from '@/assets/hero-food-truck.jpg';
+import steamIdliImage from '@/assets/steam-idli.jpg';
+import cheesePizzaImage from '@/assets/cheese-pizza.jpg';
 
 const Menu = () => {
+  const [activeCategory, setActiveCategory] = useState('chai');
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -27,6 +36,7 @@ const Menu = () => {
     chai: {
       name: "Chai & Beverages",
       emoji: "🍵",
+      images: [heroChaiImage, heroTeaSpicesImage, steamIdliImage, heroSnacksSpreadImage],
       items: [
         { name: "Greenees Special Chai", price: "₹15", popular: true },
         { name: "Green Leaf Pudina Chai", price: "₹18", special: true },
@@ -41,6 +51,7 @@ const Menu = () => {
     idli: {
       name: "Steam Idli",
       emoji: "🍛",
+      images: [steamIdliImage, heroIdliFeastImage, heroChaiImage, heroFoodTruckImage],
       items: [
         { name: "Steam Idli (2 pcs)", price: "₹25", popular: true },
         { name: "Butter Steam Idli", price: "₹30" },
@@ -58,6 +69,7 @@ const Menu = () => {
     pizza: {
       name: "Pizza",
       emoji: "🍕",
+      images: [cheesePizzaImage, heroSnacksSpreadImage, heroFoodTruckImage, heroChaiImage],
       items: [
         { name: "Veg. Cheese Pizza", price: "₹80", popular: true },
         { name: "Only Cheese Pizza", price: "₹70" },
@@ -71,6 +83,7 @@ const Menu = () => {
     ultaPizza: {
       name: "Ulta Pizza",
       emoji: "🍕",
+      images: [cheesePizzaImage, heroTeaSpicesImage, heroIdliFeastImage, steamIdliImage],
       items: [
         { name: "Veg. Cheese Ulta Pizza", price: "₹90", popular: true },
         { name: "Only Cheese Ulta Pizza", price: "₹80" },
@@ -80,6 +93,7 @@ const Menu = () => {
     sandwich: {
       name: "Sandwich & Snacks",
       emoji: "🥪",
+      images: [heroSnacksSpreadImage, heroFoodTruckImage, heroChaiImage, steamIdliImage],
       items: [
         { name: "Veg. Sandwich", price: "₹40" },
         { name: "Peri Peri Veg. Sandwich", price: "₹45" },
@@ -94,6 +108,7 @@ const Menu = () => {
     combos: {
       name: "Combo Offers",
       emoji: "🍽️",
+      images: [heroFoodTruckImage, heroChaiImage, steamIdliImage, cheesePizzaImage],
       items: [
         { name: "Chai + 2 Idli", price: "₹35", popular: true },
         { name: "Chai + Sandwich", price: "₹50" },
@@ -103,8 +118,17 @@ const Menu = () => {
     }
   };
 
+  const shuffleImages = (categoryKey: string) => {
+    const category = menuCategories[categoryKey as keyof typeof menuCategories];
+    if (category && category.images) {
+      const shuffled = [...category.images].sort(() => Math.random() - 0.5);
+      return shuffled;
+    }
+    return [];
+  };
+
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-warm">
         <motion.div
@@ -124,7 +148,7 @@ const Menu = () => {
       {/* Menu Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="chai" className="w-full">
+          <Tabs defaultValue="chai" className="w-full" onValueChange={(value) => setActiveCategory(value)}>
             <TabsList className="grid w-full h-full grid-cols-3 lg:grid-cols-6 mb-12">
               {Object.entries(menuCategories).map(([key, category]) => (
                 <TabsTrigger key={key} value={key} className="text-xs lg:text-sm">
@@ -143,11 +167,33 @@ const Menu = () => {
                   className="space-y-8"
                 >
                   <motion.div variants={itemVariants} className="text-center">
-                    <h2 className="text-3xl font-bold text-primary mb-4">
+                    <h2 className="text-3xl font-bold text-primary mb-8">
                       {category.emoji} {category.name}
                     </h2>
                   </motion.div>
 
+                  {/* Photo Gallery */}
+                  <motion.div variants={itemVariants} className="mb-12">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {shuffleImages(key).map((image, index) => (
+                        <motion.div
+                          key={`${key}-${index}`}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="aspect-square overflow-hidden rounded-lg shadow-soft hover:shadow-warm transition-all duration-300"
+                        >
+                          <img 
+                            src={image} 
+                            alt={`${category.name} ${index + 1}`}
+                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                          />
+                        </motion.div>
+                      ))}
+                    </div>
+                  </motion.div>
+
+                  {/* Menu Items */}
                   <motion.div 
                     variants={containerVariants}
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -157,29 +203,25 @@ const Menu = () => {
                         key={item.name}
                         variants={itemVariants}
                         whileHover={{ scale: 1.02 }}
-                        className="relative"
+                        className="relative bg-card rounded-lg p-6 shadow-soft hover:shadow-warm transition-all duration-300"
                       >
-                        <Card className="card-warm h-full">
-                          <CardContent className="p-6">
-                            <div className="flex justify-between items-start mb-3">
-                              <h3 className="font-semibold text-lg leading-tight">{item.name}</h3>
-                              <span className="text-primary font-bold text-lg ml-2">{item.price}</span>
-                            </div>
-                            
-                            <div className="flex gap-2">
-                              {item.popular && (
-                                <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
-                                  🔥 Popular
-                                </Badge>
-                              )}
-                              {item.special && (
-                                <Badge className="bg-gradient-primary text-primary-foreground">
-                                  ⭐ Special
-                                </Badge>
-                              )}
-                            </div>
-                          </CardContent>
-                        </Card>
+                        <div className="flex justify-between items-start mb-3">
+                          <h3 className="font-semibold text-lg leading-tight">{item.name}</h3>
+                          <span className="text-primary font-bold text-lg ml-2">{item.price}</span>
+                        </div>
+                        
+                        <div className="flex gap-2">
+                          {item.popular && (
+                            <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
+                              🔥 Popular
+                            </Badge>
+                          )}
+                          {item.special && (
+                            <Badge className="bg-gradient-primary text-primary-foreground">
+                              ⭐ Special
+                            </Badge>
+                          )}
+                        </div>
                       </motion.div>
                     ))}
                   </motion.div>
@@ -200,29 +242,27 @@ const Menu = () => {
           className="container mx-auto px-4"
         >
           <div className="max-w-4xl mx-auto">
-            <Card className="card-warm">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-primary mb-6 text-center">Special Notes</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground">
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">🍵 Our Signature</h4>
-                    <p>Green Leaf-Pudina tea was the first ever in Surat and remains our most loved item.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">🍛 Soft Idlis</h4>
-                    <p>Our idlis are famous for their softness and ease of digestion - a crowd favorite!</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">💰 Pocket Friendly</h4>
-                    <p>Quality food at affordable prices - perfect for students and families.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">🔥 Fresh Made</h4>
-                    <p>All items are prepared fresh to order with the finest ingredients.</p>
-                  </div>
+            <div className="bg-card rounded-lg p-8 shadow-soft">
+              <h3 className="text-2xl font-bold text-primary mb-6 text-center">Special Notes</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground">
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">🍵 Our Signature</h4>
+                  <p>Green Leaf-Pudina tea was the first ever in Surat and remains our most loved item.</p>
                 </div>
-              </CardContent>
-            </Card>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">🍛 Soft Idlis</h4>
+                  <p>Our idlis are famous for their softness and ease of digestion - a crowd favorite!</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">💰 Pocket Friendly</h4>
+                  <p>Quality food at affordable prices - perfect for students and families.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">🔥 Fresh Made</h4>
+                  <p>All items are prepared fresh to order with the finest ingredients.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
       </section>

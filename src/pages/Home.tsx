@@ -126,7 +126,7 @@ const Home = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.8 }}
-                      className="space-x-4"
+                      className="flex flex-col sm:flex-row gap-4 sm:gap-4 sm:space-x-0"
                     >
                       <Button asChild size="lg" className="btn-primary">
                         <Link to="/menu">
@@ -334,7 +334,7 @@ const Home = () => {
                     price: "₹60"
                   }
                 ].map((item, index) => (
-                  <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/4">
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
@@ -343,19 +343,19 @@ const Home = () => {
                       whileHover={{ scale: 1.05 }}
                       className="bg-card rounded-lg overflow-hidden shadow-soft hover:shadow-warm transition-all duration-300"
                     >
-                      <div className="aspect-square bg-muted overflow-hidden">
+                      <div className="aspect-[4/3] bg-muted overflow-hidden">
                         <img 
                           src={item.image} 
                           alt={item.name}
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <div className="p-6">
+                      <div className="p-4">
                         <div className="flex justify-between items-start mb-2">
-                          <h3 className="text-xl font-semibold">{item.name}</h3>
+                          <h3 className="text-lg font-semibold">{item.name}</h3>
                           <span className="text-lg font-bold text-primary">{item.price}</span>
                         </div>
-                        <p className="text-muted-foreground">{item.description}</p>
+                        <p className="text-muted-foreground text-sm">{item.description}</p>
                       </div>
                     </motion.div>
                   </CarouselItem>

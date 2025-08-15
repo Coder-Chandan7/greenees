@@ -35,8 +35,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <motion.div variants={itemVariants} className="space-y-4">
-            <Link to="/" className="flex items-center space-x-2">
-              <img src={greneLogo} alt="Greenees" className="h-12 w-auto" />
+            <Link to="/" className="flex items-center space-x-3 group">
+              <div className="relative">
+                <img src={greneLogo} alt="Greenees" className="h-12 w-auto rounded-lg shadow-md group-hover:shadow-lg transition-shadow" />
+                <div className="absolute inset-0 bg-gradient-primary/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <div className="text-white">
+                <h1 className="text-xl font-bold tracking-wide">Greenees</h1>
+                <p className="text-xs text-primary-foreground/80 -mt-1">Food Truck</p>
+              </div>
             </Link>
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
               Serving the finest chai and delicious snacks since 2009. 
