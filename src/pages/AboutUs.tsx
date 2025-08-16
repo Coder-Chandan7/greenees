@@ -106,7 +106,7 @@ const AboutUs = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="container mx-auto px-20"
+          className="container mx-auto md:px-20"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
