@@ -227,22 +227,20 @@ const Home = () => {
           className="container mx-auto px-4"
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
+            <p className="text-sm text-primary font-medium mb-2 tracking-wider uppercase">Our Foods</p>
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">Our Categories</h2>
-            <p className="text-xl text-muted-foreground">
-              Discover our delicious range of fresh food items
-            </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
             {[
-              { name: "Pizza", description: "14 Restaurants Products", icon: "🍕" },
-              { name: "Broast", description: "4 Restaurants Products", icon: "🍗" },
-              { name: "Chicken", description: "6 Restaurants Products", icon: "🍖" },
-              { name: "Burgers", description: "18 Restaurants Products", icon: "🍔" },
-              { name: "Shakes", description: "23 Restaurants Products", icon: "🥤" },
-              { name: "Sandwiches", description: "11 Restaurants Products", icon: "🥪" },
-              { name: "Pasta", description: "16 Restaurants Products", icon: "🍝" },
-              { name: "Desserts", description: "24 Restaurants Products", icon: "🍰" }
+              { name: "Pizza", description: "14 Restaurants Products", image: "https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=400" },
+              { name: "Broast", description: "4 Restaurants Products", image: "https://images.pexels.com/photos/60616/fried-chicken-chicken-fried-crunchy-60616.jpeg?auto=compress&cs=tinysrgb&w=400" },
+              { name: "Chicken", description: "6 Restaurants Products", image: "https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=400" },
+              { name: "Burgers", description: "18 Restaurants Products", image: "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=400" },
+              { name: "Shakes", description: "23 Restaurants Products", image: "https://images.pexels.com/photos/103566/pexels-photo-103566.jpeg?auto=compress&cs=tinysrgb&w=400" },
+              { name: "Sandwiches", description: "11 Restaurants Products", image: "https://images.pexels.com/photos/1603901/pexels-photo-1603901.jpeg?auto=compress&cs=tinysrgb&w=400" },
+              { name: "Pasta", description: "16 Restaurants Products", image: "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=400" },
+              { name: "Desserts", description: "24 Restaurants Products", image: "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=400" }
             ].map((category, index) => (
               <motion.div
                 key={category.name}
@@ -251,10 +249,20 @@ const Home = () => {
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-card rounded-lg p-6 text-center shadow-soft hover:shadow-warm transition-all duration-300 cursor-pointer"
+                className="text-center group cursor-pointer"
               >
-                <div className="text-4xl mb-4">{category.icon}</div>
-                <h3 className="text-lg font-semibold mb-2">{category.name}</h3>
+                <div className="relative mb-3 mx-auto w-28 h-28 md:w-32 md:h-32">
+                  <div className="w-full h-full rounded-full overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
+                    <img
+                      src={category.image}
+                      alt={category.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                </div>
+                <h3 className="text-base md:text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  {category.name}
+                </h3>
                 <p className="text-sm text-muted-foreground">{category.description}</p>
               </motion.div>
             ))}

@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion';
 import { Users, Award, TrendingUp, Heart } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { useRef } from 'react';
 
 const AboutUs = () => {
+   const timelineRef = useRef<HTMLElement>(null);
+
+  const scrollToTimeline = () => {
+    timelineRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -84,7 +91,7 @@ const AboutUs = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto px-4 text-center"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6">Our Story</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6">About Us</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             From Gujarat's first food truck to a beloved franchise chain, 
             discover the journey that started with a simple dream and a passion for chai.
@@ -99,36 +106,48 @@ const AboutUs = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="container mx-auto px-4"
+          className="container mx-auto px-20"
         >
-          <motion.div variants={itemVariants} className="max-w-4xl mx-auto">
-            <div className="prose prose-lg mx-auto text-muted-foreground">
-              <p className="text-lg leading-relaxed mb-6">
-                Launched in 2009 as the very first 'Food Truck' in South Gujarat. The idea was inspired by Europe 
-                and the concept was new at that time. Mr. Snehal Modi, Mr. Sunil Dubey and Mr. Nilay Modi saw the 
-                opportunity which was missed by many Gujarati businessmen.
-              </p>
-              <p className="text-lg leading-relaxed mb-6">
-                The primary goal to start a food truck was to learn about the various activities involved in running 
-                a food business as both the founders were new to the industry. A year later, in 2010, the first outlet 
-                was started in Surat for the student crowd.
-              </p>
-              <p className="text-lg leading-relaxed mb-6">
-                In 2015, they moved to Food Court. It was again one of the first food courts in Surat city. Currently, 
-                'The Park' Food Court has multiple Café & Restaurants and it was all started with Greenees.
-              </p>
-              <p className="text-lg leading-relaxed">
-                People in Surat started loving Greenees Special Chai & Idli. Green Leaf-Pudina tea was first ever in Surat. 
-                Also, Greenees's Idli was famous for its softness and ease of digestion. Surties started demanding more 
-                branches/outlets as they have to travel far to visit Greenees and BOOM!! The Franchise idea popped in.
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <motion.div variants={itemVariants} className="space-y-6">
+              <h2 className="text-4xl font-bold text-primary mb-6">Our Story, Our Passion</h2>
+              <div className="space-y-4 text-muted-foreground">
+                <p className="text-lg leading-relaxed">
+                  At Greenees, we believe in serving joy with every meal. From our humble beginnings as Gujarat's first food truck, 
+                  we've focused on fresh ingredients, innovative recipes, and lightning-fast service.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Launched in 2009, our journey started with a simple vision - to bring authentic flavors and quality food 
+                  to the streets of Gujarat. What began as a single food truck has now grown into a beloved franchise chain 
+                  across the state.
+                </p>
+              </div>
+              <Button className="btn-primary mt-6" onClick={scrollToTimeline}>
+                Learn More About Us
+              </Button>
+            </motion.div>
+
+            {/* Image */}
+            <motion.div 
+              variants={itemVariants}
+              className="relative"
+            >
+              <div className="relative rounded-lg overflow-hidden shadow-warm">
+                <img
+                  src="https://media.istockphoto.com/id/1271340986/photo/modern-kitchen-cooks-prepare-meals-on-the-stove-in-the-kitchen-of-the-restaurant-or-hotel-the.jpg?s=1024x1024&w=is&k=20&c=4ZSZP4XH8r3m2kbadvoXiwiNSNtEo9eaUrmuzp4A74g="
+                  alt="Our team preparing fresh food with passion"
+                  className="w-full h-[350px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+            </motion.div>
             </div>
-          </motion.div>
         </motion.div>
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-muted/50">
+      <section className="py-20 bg-muted/50" ref={timelineRef}>
         <motion.div
           variants={containerVariants}
           initial="hidden"
