@@ -36,7 +36,7 @@ const Header = () => {
               <div className="absolute inset-0 bg-gradient-primary/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
             <div className="text-white">
-              <h1 className="text-2xl font-bold tracking-wide">Greenees</h1>
+              <h1 className="text-2xl font-bold tracking-wide font-dancing">Greenees</h1>
               <p className="text-xs text-primary-foreground/80 -mt-1">Fast Food</p>
             </div>
           </Link>

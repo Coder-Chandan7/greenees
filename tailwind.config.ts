@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 export default {
 	darkMode: ["class"],
@@ -132,6 +133,10 @@ export default {
 				'scale-in': 'scale-in 0.3s ease-out',
 				'slide-in-left': 'slide-in-left 0.5s ease-out',
 				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite'
+			},
+			fontFamily: {
+				sans: ['Poppins', ...defaultTheme.fontFamily.sans],
+				dancing: ['Dancing Script', 'cursive'],
 			}
 		}
 	},
