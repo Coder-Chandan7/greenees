@@ -93,7 +93,7 @@ const Outlets = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto px-4 text-center"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6">Greenees Outlets</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6 font-dancing">Greenees Outlets</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Find your nearest Greenees outlet and enjoy our delicious chai and snacks.
             We're expanding across Gujarat to serve you better!

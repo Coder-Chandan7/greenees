@@ -129,7 +129,7 @@ const Franchise = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto px-4 text-center"
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Why Greenees?</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 font-dancing">Why Greenees?</h1>
           <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
             Join Gujarat's fastest-growing tea chain and become part of our success story. 
             Low investment, high returns, and complete support from day one.

@@ -91,7 +91,7 @@ const AboutUs = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto px-4 text-center"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6">About Us</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6 font-dancing">About Us</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             From Gujarat's first food truck to a beloved franchise chain, 
             discover the journey that started with a simple dream and a passion for chai.
@@ -99,55 +99,8 @@ const AboutUs = () => {
         </motion.div>
       </section>
 
-      {/* Story Section */}
-      <section className="py-20 bg-background">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="container mx-auto md:px-20"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
-            <motion.div variants={itemVariants} className="space-y-6">
-              <h2 className="text-4xl font-bold text-primary mb-6">Our Story, Our Passion</h2>
-              <div className="space-y-4 text-muted-foreground">
-                <p className="text-lg leading-relaxed">
-                  At Greenees, we believe in serving joy with every meal. From our humble beginnings as Gujarat's first food truck, 
-                  we've focused on fresh ingredients, innovative recipes, and lightning-fast service.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  Launched in 2009, our journey started with a simple vision - to bring authentic flavors and quality food 
-                  to the streets of Gujarat. What began as a single food truck has now grown into a beloved franchise chain 
-                  across the state.
-                </p>
-              </div>
-              <Button className="btn-primary mt-6" onClick={scrollToTimeline}>
-                Learn More About Us
-              </Button>
-            </motion.div>
-
-            {/* Image */}
-            <motion.div 
-              variants={itemVariants}
-              className="relative"
-            >
-              <div className="relative rounded-lg overflow-hidden shadow-warm">
-                <img
-                  src="https://media.istockphoto.com/id/1271340986/photo/modern-kitchen-cooks-prepare-meals-on-the-stove-in-the-kitchen-of-the-restaurant-or-hotel-the.jpg?s=1024x1024&w=is&k=20&c=4ZSZP4XH8r3m2kbadvoXiwiNSNtEo9eaUrmuzp4A74g="
-                  alt="Our team preparing fresh food with passion"
-                  className="w-full h-[350px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
-            </motion.div>
-            </div>
-        </motion.div>
-      </section>
-
       {/* Timeline */}
-      <section className="py-20 bg-muted/50" ref={timelineRef}>
+      <section className="pt-10 pb-20 bg-muted/50" ref={timelineRef}>
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -157,30 +110,141 @@ const AboutUs = () => {
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">Our Journey</h2>
-            <p className="text-xl text-muted-foreground">Key milestones in our growth story</p>
+            <p className="text-xl text-muted-foreground">From a single food truck to Gujarat's beloved chai chain</p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            {milestones.map((milestone, index) => (
-              <motion.div
-                key={milestone.year}
-                variants={itemVariants}
-                className="flex items-center mb-8 last:mb-0"
-              >
-                <div className="flex-shrink-0 w-24 text-right mr-8">
-                  <span className="text-2xl font-bold text-primary">{milestone.year}</span>
-                </div>
-                <div className="flex-shrink-0 w-4 h-4 bg-gradient-primary rounded-full mr-8 relative">
-                  {index !== milestones.length - 1 && (
-                    <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-0.5 h-16 bg-border"></div>
-                  )}
-                </div>
-                <div className="flex-grow">
-                  <p className="text-lg text-muted-foreground">{milestone.event}</p>
-                </div>
-              </motion.div>
-            ))}
+          {/* Roadmap Container */}
+          <div className="relative max-w-7xl mx-auto">
+            {/* Main Road Path */}
+            <div className="absolute top-1/2 left-0 right-0 h-2 bg-gradient-to-r from-primary via-accent to-secondary rounded-full transform -translate-y-1/2 hidden lg:block"></div>
+            
+            {/* Mobile/Tablet Vertical Path */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-accent to-secondary rounded-full transform -translate-x-1/2 lg:hidden"></div>
+
+            {/* Journey Milestones */}
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-4 relative">
+              {[
+                {
+                  year: "2009",
+                  title: "The Beginning",
+                  event: "Started as Gujarat's first Food Truck",
+                  image: "https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg?auto=compress&cs=tinysrgb&w=400",
+                  icon: "🚚",
+                  position: "top"
+                },
+                {
+                  year: "2010", 
+                  title: "First Outlet",
+                  event: "Opened first outlet in Surat for students",
+                  image: "https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=400",
+                  icon: "🏪",
+                  position: "bottom"
+                },
+                {
+                  year: "2015",
+                  title: "Innovation",
+                  event: "Moved to Food Court - one of Surat's first",
+                  image: "https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400",
+                  icon: "🏢",
+                  position: "top"
+                },
+                {
+                  year: "2021",
+                  title: "Expansion",
+                  event: "Started Franchise expansion",
+                  image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
+                  icon: "📈",
+                  position: "bottom"
+                },
+                {
+                  year: "2024",
+                  title: "Success",
+                  event: "10+ successful franchise outlets",
+                  image: "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=400",
+                  icon: "🎉",
+                  position: "top"
+                }
+              ].map((milestone, index) => (
+                <motion.div
+                  key={milestone.year}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05 }}
+                  className={`relative flex flex-col items-center ${
+                    milestone.position === 'bottom' ? 'lg:flex-col-reverse lg:pt-20' : 'lg:pb-20'
+                  }`}
+                >
+                  {/* Milestone Card */}
+                  <div className="bg-card rounded-2xl shadow-warm hover:shadow-lg transition-all duration-300 p-6 max-w-xs w-full border border-border/50 backdrop-blur-sm">
+                    {/* Image */}
+                    <div className="relative mb-4 overflow-hidden rounded-xl">
+                      <img 
+                        src={milestone.image} 
+                        alt={milestone.title}
+                        className="w-full h-32 object-cover transition-transform duration-300 hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-primary mb-2">{milestone.year}</div>
+                      <h3 className="text-lg font-semibold text-foreground mb-2">{milestone.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{milestone.event}</p>
+                    </div>
+                  </div>
+
+                  {/* Connection Point */}
+                  <div className={`relative ${milestone.position === 'bottom' ? 'lg:order-first' : ''}`}>
+                    {/* Desktop Connection */}
+                    <div className="hidden lg:block">
+                      <div className={`w-6 h-6 bg-gradient-primary rounded-full border-4 border-background shadow-lg ${
+                        milestone.position === 'bottom' ? 'mb-4' : 'mt-4'
+                      }`}></div>
+                      {milestone.position === 'bottom' && (
+                        <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-0.5 h-16 bg-gradient-to-b from-primary to-transparent"></div>
+                      )}
+                      {milestone.position === 'top' && (
+                        <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 w-0.5 h-16 bg-gradient-to-t from-primary to-transparent"></div>
+                      )}
+                    </div>
+
+                    {/* Mobile Connection */}
+                    <div className="lg:hidden flex items-center justify-center my-4">
+                      <div className="w-6 h-6 bg-gradient-primary rounded-full border-4 border-background shadow-lg"></div>
+                    </div>
+                  </div>
+
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Decorative Elements */}
+            <div className="absolute -top-12 left-4 w-6 h-6 bg-primary/20 rounded-full animate-bounce-gentle hidden lg:block"></div>
+            <div className="absolute -bottom-4 right-4 w-6 h-6 bg-accent/30 rounded-full animate-bounce-gentle delay-1000 hidden lg:block"></div>
+            <div className="absolute top-1/4 right-8 w-4 h-4 bg-secondary/40 rounded-full animate-bounce-gentle delay-500 hidden lg:block"></div>
           </div>
+
+          {/* Journey Stats */}
+          {/* <motion.div variants={itemVariants} className="mt-20 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">15+</div>
+                <div className="text-sm text-muted-foreground">Years Journey</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-accent">5</div>
+                <div className="text-sm text-muted-foreground">Major Milestones</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-secondary">10+</div>
+                <div className="text-sm text-muted-foreground">Outlets</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-primary">1st</div>
+                <div className="text-sm text-muted-foreground">Food Truck in Gujarat</div>
+              </div>
+            </div>
+          </motion.div> */}
         </motion.div>
       </section>
 

@@ -116,7 +116,7 @@ const ContactUs = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto px-4 text-center"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6">Contact Us</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6 font-dancing">Contact Us</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Have questions about our menu, outlets, or franchise opportunities?
             We'd love to hear from you! Get in touch with us today.

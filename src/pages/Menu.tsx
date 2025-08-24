@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import heroChaiImage from '@/assets/hero-chai.jpg';
 import heroTeaSpicesImage from '@/assets/hero-tea-spices.jpg';
 import heroIdliFeastImage from '@/assets/hero-idli-feast.jpg';
@@ -11,7 +10,7 @@ import steamIdliImage from '@/assets/steam-idli.jpg';
 import cheesePizzaImage from '@/assets/cheese-pizza.jpg';
 
 const Menu = () => {
-  const [activeCategory, setActiveCategory] = useState('chai');
+  const [activeCategory, setActiveCategory] = useState('all');
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -32,112 +31,117 @@ const Menu = () => {
     }
   };
 
-  const menuCategories = {
-    chai: {
-      name: "Chai & Beverages",
-      emoji: "🍵",
-      images: [heroChaiImage, heroTeaSpicesImage, steamIdliImage, heroSnacksSpreadImage,heroChaiImage, heroTeaSpicesImage, steamIdliImage, heroSnacksSpreadImage],
-      items: [
-        { name: "Greenees Special Chai", price: "₹15", popular: true },
-        { name: "Green Leaf Pudina Chai", price: "₹18", special: true },
-        { name: "Masala Chai", price: "₹15" },
-        { name: "Ginger Chai", price: "₹16" },
-        { name: "Cardamom Chai", price: "₹17" },
-        { name: "Black Tea", price: "₹12" },
-        { name: "Coffee", price: "₹20" },
-        { name: "Cold Coffee", price: "₹35" }
-      ]
-    },
-    idli: {
-      name: "Steam Idli",
-      emoji: "🍛",
-      images: [steamIdliImage, heroIdliFeastImage, heroChaiImage, heroFoodTruckImage],
-      items: [
-        { name: "Steam Idli (2 pcs)", price: "₹25", popular: true },
-        { name: "Butter Steam Idli", price: "₹30" },
-        { name: "Cheese Butter Steam Idli", price: "₹40" },
-        { name: "Masala Idli", price: "₹35" },
-        { name: "Cheese Masala Idli", price: "₹45" },
-        { name: "Chocolate Idli", price: "₹40", special: true },
-        { name: "Cheese Chocolate Idli", price: "₹50" },
-        { name: "Schezwan Steam Idli", price: "₹35" },
-        { name: "Schezwan Cheese Steam Idli", price: "₹45" },
-        { name: "Peri Peri Steam Idli", price: "₹35" },
-        { name: "Peri Peri Cheese Steam Idli", price: "₹45" }
-      ]
-    },
-    pizza: {
-      name: "Pizza",
-      emoji: "🍕",
-      images: [cheesePizzaImage, heroSnacksSpreadImage, heroFoodTruckImage, heroChaiImage],
-      items: [
-        { name: "Veg. Cheese Pizza", price: "₹80", popular: true },
-        { name: "Only Cheese Pizza", price: "₹70" },
-        { name: "Cheese Burst Pizza", price: "₹100", special: true },
-        { name: "Tandoori Paneer Pizza", price: "₹90" },
-        { name: "Italian Pizza", price: "₹85" },
-        { name: "Veg. Schezwan Pizza", price: "₹85" },
-        { name: "Maggi Pizza", price: "₹75" }
-      ]
-    },
-    ultaPizza: {
-      name: "Ulta Pizza",
-      emoji: "🍕",
-      images: [cheesePizzaImage, heroTeaSpicesImage, heroIdliFeastImage, steamIdliImage],
-      items: [
-        { name: "Veg. Cheese Ulta Pizza", price: "₹90", popular: true },
-        { name: "Only Cheese Ulta Pizza", price: "₹80" },
-        { name: "Italiano Ulta Pizza", price: "₹95", special: true }
-      ]
-    },
-    sandwich: {
-      name: "Sandwich & Snacks",
-      emoji: "🥪",
-      images: [heroSnacksSpreadImage, heroFoodTruckImage, heroChaiImage, steamIdliImage],
-      items: [
-        { name: "Veg. Sandwich", price: "₹40" },
-        { name: "Peri Peri Veg. Sandwich", price: "₹45" },
-        { name: "Veg. Cheese Sandwich", price: "₹50", popular: true },
-        { name: "Chatni Sandwich", price: "₹35" },
-        { name: "Grilled Sandwich", price: "₹55" },
-        { name: "Club Sandwich", price: "₹65" },
-        { name: "Maggi", price: "₹30" },
-        { name: "Cheese Maggi", price: "₹40" }
-      ]
-    },
-    combos: {
-      name: "Combo Offers",
-      emoji: "🍽️",
-      images: [heroFoodTruckImage, heroChaiImage, steamIdliImage, cheesePizzaImage],
-      items: [
-        { name: "Chai + 2 Idli", price: "₹35", popular: true },
-        { name: "Chai + Sandwich", price: "₹50" },
-        { name: "Chai + Maggi", price: "₹40" },
-        { name: "Special Combo (Chai + Cheese Idli + Sandwich)", price: "₹75", special: true }
-      ]
-    }
-  };
+  const categories = [
+    { id: 'all', name: 'All', emoji: '🍽️' },
+    { id: 'chai', name: 'Chai', emoji: '🍵' },
+    { id: 'idli', name: 'Idli', emoji: '🍛' },
+    { id: 'pizza', name: 'Pizza', emoji: '🍕' },
+    { id: 'sandwich', name: 'Sandwich', emoji: '🥪' },
+    { id: 'snacks', name: 'Snacks', emoji: '🍿' }
+  ];
 
-  const shuffleImages = (categoryKey: string) => {
-    const category = menuCategories[categoryKey as keyof typeof menuCategories];
-    if (category && category.images) {
-      const shuffled = [...category.images].sort(() => Math.random() - 0.5);
-      return shuffled;
+  const menuItems = [
+    {
+      id: 1,
+      category: 'chai',
+      name: 'Greenees Special Chai',
+      description: 'Our signature green leaf-pudina chai that started it all in Surat. A perfect blend of traditional spices and fresh mint leaves.',
+      image: heroChaiImage,
+      price: '₹15',
+      popular: true
+    },
+    {
+      id: 2,
+      category: 'chai',
+      name: 'Masala Chai',
+      description: 'Traditional spiced tea blend with cardamom, ginger, and cinnamon. A warming cup of comfort that awakens your senses.',
+      image: heroTeaSpicesImage,
+      price: '₹15'
+    },
+    {
+      id: 3,
+      category: 'idli',
+      name: 'Steam Idli',
+      description: 'Soft and fluffy steamed idlis famous for their tenderness. Made fresh daily with the finest ingredients for easy digestion.',
+      image: steamIdliImage,
+      price: '₹25',
+      popular: true
+    },
+    {
+      id: 4,
+      category: 'idli',
+      name: 'Butter Steam Idli',
+      description: 'Our classic steam idlis topped with rich, creamy butter. A delightful combination that melts in your mouth.',
+      image: heroIdliFeastImage,
+      price: '₹30'
+    },
+    {
+      id: 5,
+      category: 'pizza',
+      name: 'Cheese Pizza',
+      description: 'Fresh and cheesy pizza with premium mozzarella cheese. Crispy base with the perfect amount of tangy tomato sauce.',
+      image: cheesePizzaImage,
+      price: '₹150',
+      special: true
+    },
+    {
+      id: 6,
+      category: 'pizza',
+      name: 'Veg Cheese Pizza',
+      description: 'Loaded with fresh vegetables and melted cheese. A colorful and nutritious pizza that satisfies your cravings.',
+      image: cheesePizzaImage,
+      price: '₹180'
+    },
+    {
+      id: 7,
+      category: 'sandwich',
+      name: 'Veg Sandwich',
+      description: 'Fresh vegetables layered between soft bread slices. A healthy and filling option packed with nutrients and flavor.',
+      image: heroSnacksSpreadImage,
+      price: '₹40'
+    },
+    {
+      id: 8,
+      category: 'sandwich',
+      name: 'Grilled Sandwich',
+      description: 'Perfectly grilled sandwich with a crispy exterior and warm, melted filling. A satisfying meal that hits the spot.',
+      image: heroSnacksSpreadImage,
+      price: '₹55',
+      popular: true
+    },
+    {
+      id: 9,
+      category: 'snacks',
+      name: 'Mixed Pakoras',
+      description: 'Assorted crispy pakoras made with fresh vegetables and aromatic spices. Perfect for sharing with friends and family.',
+      image: heroSnacksSpreadImage,
+      price: '₹60'
+    },
+    {
+      id: 10,
+      category: 'snacks',
+      name: 'Samosa',
+      description: 'Golden, crispy pastry filled with spiced potatoes and peas. A classic Indian snack that never goes out of style.',
+      image: heroFoodTruckImage,
+      price: '₹20'
     }
-    return [];
-  };
+  ];
+
+  const filteredItems = activeCategory === 'all' 
+    ? menuItems 
+    : menuItems.filter(item => item.category === activeCategory);
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-warm">
+      <section className="pt-20 pb-0 bg-gradient-warm">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="container mx-auto px-4 text-center"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6">Our Menu</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6 font-dancing">Our Menu</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Discover our delicious range of chai, idlis, pizzas, and snacks - 
             all made fresh with love and served at pocket-friendly prices
@@ -148,124 +152,125 @@ const Menu = () => {
       {/* Menu Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="chai" className="w-full" onValueChange={(value) => setActiveCategory(value)}>
-            <TabsList className="grid w-full h-full grid-cols-3 lg:grid-cols-6 mb-12">
-              {Object.entries(menuCategories).map(([key, category]) => (
-                <TabsTrigger key={key} value={key} className="text-xs lg:text-sm">
-                  <span className="mr-1">{category.emoji}</span>
-                  <span className="hidden sm:inline">{category.name}</span>
-                </TabsTrigger>
-              ))}
-            </TabsList>
-
-            {Object.entries(menuCategories).map(([key, category]) => (
-              <TabsContent key={key} value={key}>
-                <motion.div
-                  variants={containerVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="space-y-8"
-                >
-                  <motion.div variants={itemVariants} className="text-center">
-                    <h2 className="text-3xl font-bold text-primary mb-8">
-                      {category.emoji} {category.name}
-                    </h2>
-                  </motion.div>
-
-                  {/* Photo Gallery */}
-                  <motion.div variants={itemVariants} className="mb-12">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      {shuffleImages(key).map((image, index) => (
-                        <motion.div
-                          key={`${key}-${index}`}
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: index * 0.1 }}
-                          className="aspect-square overflow-hidden rounded-lg shadow-soft hover:shadow-warm transition-all duration-300"
-                        >
-                          <img 
-                            src={image} 
-                            alt={`${category.name} ${index + 1}`}
-                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                          />
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
-
-                  {/* Menu Items */}
-                  {/* <motion.div 
-                    variants={containerVariants}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                  >
-                    {category.items.map((item, index) => (
-                      <motion.div
-                        key={item.name}
-                        variants={itemVariants}
-                        whileHover={{ scale: 1.02 }}
-                        className="relative bg-card rounded-lg p-6 shadow-soft hover:shadow-warm transition-all duration-300"
-                      >
-                        <div className="flex justify-between items-start mb-3">
-                          <h3 className="font-semibold text-lg leading-tight">{item.name}</h3>
-                          <span className="text-primary font-bold text-lg ml-2">{item.price}</span>
-                        </div>
-                        
-                        <div className="flex gap-2">
-                          {item.popular && (
-                            <Badge variant="secondary" className="bg-secondary text-secondary-foreground">
-                              🔥 Popular
-                            </Badge>
-                          )}
-                          {item.special && (
-                            <Badge className="bg-gradient-primary text-primary-foreground">
-                              ⭐ Special
-                            </Badge>
-                          )}
-                        </div>
-                      </motion.div>
-                    ))}
-                  </motion.div> */}
-                </motion.div>
-              </TabsContent>
+          {/* Category Filters */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-wrap justify-center gap-4 mb-16"
+          >
+            {categories.map((category) => (
+              <motion.button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  activeCategory === category.id
+                    ? 'bg-primary text-primary-foreground shadow-warm'
+                    : 'bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="mr-2">{category.emoji}</span>
+                {category.name}
+              </motion.button>
             ))}
-          </Tabs>
+          </motion.div>
+
+          {/* Menu Items Grid */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {filteredItems.map((item, index) => (
+              <motion.div
+                key={item.id}
+                variants={itemVariants}
+                whileHover={{ y: -10 }}
+                className="group relative overflow-hidden rounded-2xl shadow-soft hover:shadow-warm transition-all duration-500"
+              >
+                {/* Image Container */}
+                <div className="relative h-80 overflow-hidden">
+                  <motion.img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    initial={{ scale: 1.1 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                  />
+                  
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  
+                  {/* Badges */}
+                  <div className="absolute top-4 right-4 flex flex-col gap-2">
+                    {item.popular && (
+                      <Badge className="bg-secondary text-secondary-foreground">
+                        🔥 Popular
+                      </Badge>
+                    )}
+                    {item.special && (
+                      <Badge className="bg-gradient-primary text-primary-foreground">
+                        ⭐ Special
+                      </Badge>
+                    )}
+                  </div>
+
+                  {/* Price */}
+                  {/* <div className="absolute top-4 left-4">
+                    <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full font-bold text-lg">
+                      {item.price}
+                    </span>
+                  </div> */}
+                </div>
+
+                {/* Content Overlay */}
+                <motion.div
+                  className="absolute bottom-0 left-0 right-0 p-6 text-white"
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: index * 0.1 + 0.3 }}
+                >
+                  <motion.h3
+                    className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300"
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {item.name}
+                  </motion.h3>
+                  
+                  <motion.p
+                    className="text-white/90 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    initial={{ y: 10, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    {item.description}
+                  </motion.p>
+                </motion.div>
+
+                {/* Hover Effect Border */}
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-2xl transition-colors duration-300" />
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Empty State */}
+          {filteredItems.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-16"
+            >
+              <div className="text-6xl mb-4">🍽️</div>
+              <h3 className="text-2xl font-bold text-primary mb-2">No items found</h3>
+              <p className="text-muted-foreground">Try selecting a different category</p>
+            </motion.div>
+          )}
         </div>
       </section>
-
-      {/* Special Notes */}
-      {/* <section className="py-16 bg-muted/50">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="container mx-auto px-4"
-        >
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-card rounded-lg p-8 shadow-soft">
-              <h3 className="text-2xl font-bold text-primary mb-6 text-center">Special Notes</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-muted-foreground">
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">🍵 Our Signature</h4>
-                  <p>Green Leaf-Pudina tea was the first ever in Surat and remains our most loved item.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">🍛 Soft Idlis</h4>
-                  <p>Our idlis are famous for their softness and ease of digestion - a crowd favorite!</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">💰 Pocket Friendly</h4>
-                  <p>Quality food at affordable prices - perfect for students and families.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">🔥 Fresh Made</h4>
-                  <p>All items are prepared fresh to order with the finest ingredients.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </section> */}
     </div>
   );
 };

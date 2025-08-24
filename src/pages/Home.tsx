@@ -280,66 +280,51 @@ const Home = () => {
       </section>
 
       {/* About Preview Section */}
-      <section className="py-20 bg-gradient-warm">
+
+      
+      <section className="py-20 bg-background">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="container mx-auto px-4"
+          className="container mx-auto md:px-20"
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">ABOUT US</h2>
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Launched in 2009 as the very first 'Food Truck' in South Gujarat. The idea was inspired by Europe
-                and the concept was new at that time. Mr. Snehal Modi & Mr. Sunil Dubey saw the opportunity which
-                was missed by many Gujarati businessmen.
-              </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <motion.div variants={itemVariants} className="space-y-6">
+              <h2 className="text-4xl font-bold text-primary mb-6">Our Story, Our Passion</h2>
+              <div className="space-y-4 text-muted-foreground">
+                <p className="text-lg leading-relaxed">
+                  At Greenees, we believe in serving joy with every meal. From our humble beginnings as Gujarat's first food truck, 
+                  we've focused on fresh ingredients, innovative recipes, and lightning-fast service.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Launched in 2009, our journey started with a simple vision - to bring authentic flavors and quality food 
+                  to the streets of Gujarat. What began as a single food truck has now grown into a beloved franchise chain 
+                  across the state.
+                </p>
+              </div>
+              <Button className="btn-primary mt-6">
+                Learn More About Us
+              </Button>
+            </motion.div>
+
+            {/* Image */}
+            <motion.div 
+              variants={itemVariants}
+              className="relative"
+            >
+              <div className="relative rounded-lg overflow-hidden shadow-warm">
+                <img
+                  src="https://media.istockphoto.com/id/1271340986/photo/modern-kitchen-cooks-prepare-meals-on-the-stove-in-the-kitchen-of-the-restaurant-or-hotel-the.jpg?s=1024x1024&w=is&k=20&c=4ZSZP4XH8r3m2kbadvoXiwiNSNtEo9eaUrmuzp4A74g="
+                  alt="Our team preparing fresh food with passion"
+                  className="w-full h-[350px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              </div>
+            </motion.div>
             </div>
-          </motion.div>
-
-          {/* Specialties Grid */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {specialties.map((specialty, index) => (
-              <motion.div
-                key={specialty.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className="card-warm hover:scale-105 transition-transform duration-300 text-center p-6">
-                  <CardContent className="pt-6">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                      <specialty.icon className="h-8 w-8 text-primary-foreground" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3">{specialty.title}</h3>
-                    <p className="text-muted-foreground">{specialty.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Stats Section */}
-          <motion.div ref={counterRef} variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ delay: index * 0.1, type: "spring" }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-muted-foreground font-medium">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
         </motion.div>
       </section>
 
@@ -496,11 +481,6 @@ const Home = () => {
                       viewport={{ once: true }}
                       className="bg-card rounded-lg p-6 shadow-soft hover:shadow-warm transition-all duration-300 h-full"
                     >
-                      <div className="flex items-center mb-4">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                        ))}
-                      </div>
                       <p className="text-muted-foreground mb-6 italic">"{testimonial.quote}"</p>
                       <div className="flex items-center">
                         <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
