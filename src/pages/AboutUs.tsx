@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import { Users, Award, TrendingUp, Heart } from 'lucide-react';
+import { Users, Award, TrendingUp, Heart, Twitter, Facebook, Linkedin, Instagram } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 const AboutUs = () => {
    const timelineRef = useRef<HTMLElement>(null);
@@ -34,29 +34,141 @@ const AboutUs = () => {
       name: "Ram Srivasan",
       role: "Co-Founder",
       description: "Experience of more than 15 years in the Food Industry. He manages Finance, Purchase & Negotiation at Greenees.",
-      image: "👨‍💼"
+      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400",
+      social: {
+        twitter: "https://twitter.com/ramsrivasan",
+        linkedin: "https://linkedin.com/in/ramsrivasan",
+        facebook: "https://facebook.com/ramsrivasan"
+      }
     },
     {
       name: "Rajesh Dubey", 
       role: "Co-Founder",
       description: "Handles Operations, Marketing & Business Development. His vision drives Greenees's expansion across Gujarat.",
-      image: "👨‍💼"
+      image: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400",
+      social: {
+        twitter: "https://twitter.com/rajeshdubey",
+        linkedin: "https://linkedin.com/in/rajeshdubey",
+        instagram: "https://instagram.com/rajeshdubey"
+      }
     },
     {
       name: "Keshav Bhatt",
       role: "Co-Founder", 
       description: "Manages Technology, Innovation & Customer Experience. Focuses on modernizing the Greenees experience.",
-      image: "👨‍💼"
+      image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400",
+      social: {
+        twitter: "https://twitter.com/keshavbhatt",
+        linkedin: "https://linkedin.com/in/keshavbhatt",
+        facebook: "https://facebook.com/keshavbhatt",
+        instagram: "https://instagram.com/keshavbhatt"
+      }
     }
   ];
 
-  const milestones = [
-    { year: "2009", event: "Started as Gujarat's first Food Truck" },
-    { year: "2010", event: "Opened first outlet in Surat for students" },
-    { year: "2015", event: "Moved to Food Court - one of Surat's first" },
-    { year: "2021", event: "Started Franchise expansion" },
-    { year: "2024", event: "10+ successful franchise outlets" }
-  ];
+  interface Founder {
+    name: string;
+    role: string;
+    description: string;
+    image: string;
+    social: {
+      [key: string]: string;
+    };
+  }
+
+  interface FounderCardProps {
+    founder: Founder;
+    index: number;
+  }
+
+  const FounderCard = ({ founder, index }: FounderCardProps) => {
+    const [isHovered, setIsHovered] = useState(false);
+
+    const getSocialIcon = (platform) => {
+      switch (platform) {
+        case 'twitter':
+          return Twitter;
+        case 'facebook':
+          return Facebook;
+        case 'linkedin':
+          return Linkedin;
+        case 'instagram':
+          return Instagram;
+        default:
+          return null;
+      }
+    };
+
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: index * 0.2 }}
+        viewport={{ once: true }}
+        className="relative group"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2">
+          {/* Image Container */}
+          <div className="relative h-80 overflow-hidden">
+            <img
+              src={founder.image}
+              alt={founder.name}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            
+            {/* Social Media Icons */}
+            <motion.div
+              className="absolute top-4 right-4 flex flex-col gap-2"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ 
+                opacity: isHovered ? 1 : 0,
+                x: isHovered ? 0 : 20
+              }}
+              transition={{ duration: 0.3, staggerChildren: 0.1 }}
+            >
+              {Object.entries(founder.social).map(([platform, url], socialIndex) => {
+                const IconComponent = getSocialIcon(platform);
+                return (
+                  <motion.a
+                    key={platform}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary-dark transition-colors duration-300 shadow-lg"
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ 
+                      opacity: isHovered ? 1 : 0,
+                      scale: isHovered ? 1 : 0
+                    }}
+                    transition={{ 
+                      duration: 0.3,
+                      delay: socialIndex * 0.1
+                    }}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <IconComponent className="h-5 w-5" />
+                  </motion.a>
+                );
+              })}
+            </motion.div>
+          </div>
+
+          {/* Content */}
+          <div className="p-6">
+            <h3 className="text-xl font-bold text-gray-900 mb-1">{founder.name}</h3>
+            <p className="text-primary font-semibold mb-3">{founder.role}</p>
+            <p className="text-gray-600 text-sm leading-relaxed">{founder.description}</p>
+          </div>
+        </div>
+      </motion.div>
+    );
+  };
 
   const values = [
     {
@@ -264,22 +376,7 @@ const AboutUs = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {founders.map((founder, index) => (
-              <motion.div
-                key={founder.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className="card-warm text-center">
-                  <CardContent className="pt-8 pb-8">
-                    <div className="text-6xl mb-4">{founder.image}</div>
-                    <h3 className="text-xl font-semibold mb-2">{founder.name}</h3>
-                    <p className="text-primary font-medium mb-4">{founder.role}</p>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{founder.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              <FounderCard key={founder.name} founder={founder} index={index} />
             ))}
           </div>
         </motion.div>

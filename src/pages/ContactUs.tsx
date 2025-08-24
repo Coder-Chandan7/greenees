@@ -316,7 +316,7 @@ const ContactUs = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-background">
+      {/* <section className="py-20 bg-background">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -359,7 +359,7 @@ const ContactUs = () => {
             ))}
           </div>
         </motion.div>
-      </section>
+      </section> */}
     </div>
   );
 };

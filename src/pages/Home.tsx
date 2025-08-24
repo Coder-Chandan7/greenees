@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Coffee, MapPin, Users, Star, ChefHat } from 'lucide-react';
+import { ArrowRight, Coffee, Star, ChefHat, Store, UserCheck, Clock, Calendar, CalendarDays } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import heroChaiImage from '@/assets/hero-chai.jpg';
 import heroTeaSpicesImage from '@/assets/hero-tea-spices.jpg';
@@ -280,56 +279,73 @@ const Home = () => {
       </section>
 
       {/* About Preview Section */}
-
-      
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-gradient-warm relative">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="container mx-auto md:px-20"
+          className="container mx-auto px-6 md:px-20"
         >
+          {/* Top Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
-            <motion.div variants={itemVariants} className="space-y-6">
-              <h2 className="text-4xl font-bold text-primary mb-6">Our Story, Our Passion</h2>
-              <div className="space-y-4 text-muted-foreground">
-                <p className="text-lg leading-relaxed">
-                  At Greenees, we believe in serving joy with every meal. From our humble beginnings as Gujarat's first food truck, 
-                  we've focused on fresh ingredients, innovative recipes, and lightning-fast service.
-                </p>
-                <p className="text-lg leading-relaxed">
-                  Launched in 2009, our journey started with a simple vision - to bring authentic flavors and quality food 
-                  to the streets of Gujarat. What began as a single food truck has now grown into a beloved franchise chain 
-                  across the state.
-                </p>
-              </div>
-              <Button className="btn-primary mt-6">
-                Learn More About Us
-              </Button>
+            <motion.div variants={itemVariants} className="space-y-6 text-center lg:text-left">
+              <h2 className="text-4xl font-bold text-foreground mb-6">
+                Our Story, Our Passion
+              </h2>
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                At FastBite, we believe in serving joy with every meal. From our humble
+                beginnings, we’ve focused on fresh ingredients, innovative recipes, and
+                lightning-fast service. Discover the passion behind your favorite dishes!
+              </p>
+              <Button className="mt-6">Learn More About Us</Button>
             </motion.div>
 
             {/* Image */}
-            <motion.div 
-              variants={itemVariants}
-              className="relative"
-            >
-              <div className="relative rounded-lg overflow-hidden shadow-warm">
+            <motion.div variants={itemVariants} className="relative">
+              <div className="relative rounded-lg overflow-hidden shadow-lg">
                 <img
                   src="https://media.istockphoto.com/id/1271340986/photo/modern-kitchen-cooks-prepare-meals-on-the-stove-in-the-kitchen-of-the-restaurant-or-hotel-the.jpg?s=1024x1024&w=is&k=20&c=4ZSZP4XH8r3m2kbadvoXiwiNSNtEo9eaUrmuzp4A74g="
                   alt="Our team preparing fresh food with passion"
                   className="w-full h-[350px] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
             </motion.div>
-            </div>
+          </div>
         </motion.div>
+
+        {/* Stats Section */}
+        <div className="relative md:absolute left-0 md:left-1/2 transform md:-translate-x-1/2 md:translate-y-1/2 w-full max-w-4xl px-6 mt-12 md:mt-0 md:top-80">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+            <div className="bg-card shadow-lg rounded-2xl p-6">
+              <div className="flex flex-col items-center">
+                <Store className="w-10 h-10 text-primary mb-3"/>
+                <h3 className="text-3xl font-bold text-primary">250+</h3>
+                <p className="mt-2 text-muted-foreground">Total Outlets</p>
+              </div>
+            </div>
+            <div className="bg-card shadow-lg rounded-2xl p-6">
+              <div className="flex flex-col items-center">
+                <UserCheck className="w-10 h-10 text-primary mb-3" />
+                <h3 className="text-3xl font-bold text-primary">500K+</h3>
+                <p className="mt-2 text-muted-foreground">Happy Customers</p>
+              </div>
+            </div>
+            <div className="bg-card shadow-lg rounded-2xl p-6">
+              <div className="flex flex-col items-center">
+                <CalendarDays className="w-10 h-10 text-primary mb-3" />
+                <h3 className="text-3xl font-bold text-primary">15+</h3>
+                <p className="mt-2 text-muted-foreground">Years in Business</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
+
       {/* Popular Menu Section */}
-      <section className="py-20 bg-background">
+      <section className="py-20 md:pt-32 bg-background">
         <motion.div
           variants={containerVariants}
           initial="hidden"
