@@ -212,7 +212,7 @@ const AboutUs = () => {
       </section>
 
       {/* Timeline */}
-      <section className="pt-10 pb-20 bg-muted/50" ref={timelineRef}>
+      <section className="pt-10 pb-20 bg-background" ref={timelineRef}>
         <motion.div
           variants={containerVariants}
           initial="hidden"

@@ -133,37 +133,92 @@ const ContactUs = () => {
           viewport={{ once: true }}
           className="container mx-auto px-4"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-            {contactInfo.map((info, index) => (
-              <motion.div
-                key={info.title}
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-                className="h-full"
-              >
-                <Card className="card-warm h-full">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                      <info.icon className="h-8 w-8 text-primary-foreground" />
+          {/* Single Contact Info Section */}
+          <motion.div variants={itemVariants} className="mb-16">
+            <Card className="card-warm bg-muted/30">
+              <CardContent className="p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  {/* Address */}
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-6 w-6 text-primary-foreground" />
                     </div>
-                    <h3 className="font-semibold text-lg text-primary mb-3">{info.title}</h3>
-                    {info.link ? (
+                    <div>
+                      <h3 className="font-semibold text-lg text-primary mb-2">Address</h3>
                       <a
-                        href={info.link}
-                        target={info.link.startsWith('http') ? '_blank' : undefined}
-                        rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        href="https://maps.app.goo.gl/EwgC7Bm9d5HvA9ZP7"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary transition-colors text-sm leading-relaxed"
                       >
-                        {info.content}
+                        Shop 1 & 2, The Park Food Court, Opp: SVNIT, Ichhanath, Umra, Surat - 395007
                       </a>
-                    ) : (
-                      <p className="text-muted-foreground text-sm leading-relaxed">{info.content}</p>
-                    )}
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+                    </div>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Phone className="h-6 w-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-primary mb-2">Call Us</h3>
+                      <a
+                        href="tel:+919825253920"
+                        className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                      >
+                        +91 12345 67890
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Mail className="h-6 w-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-primary mb-2">Email Us</h3>
+                      <a
+                        href="mailto:greeneessurat@gmail.com"
+                        className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                      >
+                        greeneessurat@gmail.com
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Follow Us */}
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Instagram className="h-6 w-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg text-primary mb-2">Follow Us</h3>
+                      <div className="flex space-x-3">
+                        <a
+                          href="https://www.facebook.com/greeneesfastfood"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-blue-600 transition-colors"
+                        >
+                          <Facebook className="h-5 w-5" />
+                        </a>
+                        <a
+                          href="https://www.instagram.com/greenees.surat/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-pink-600 transition-colors"
+                        >
+                          <Instagram className="h-5 w-5" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </motion.div>
       </section>
 

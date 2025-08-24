@@ -299,7 +299,9 @@ const Home = () => {
                 beginnings, we’ve focused on fresh ingredients, innovative recipes, and
                 lightning-fast service. Discover the passion behind your favorite dishes!
               </p>
-              <Button className="mt-6">Learn More About Us</Button>
+              <Button className="mt-6">
+                <Link to="/about-us">Learn More About Us</Link>
+              </Button>
             </motion.div>
 
             {/* Image */}
@@ -420,7 +422,7 @@ const Home = () => {
                       <div className="p-4">
                         <div className="flex justify-between items-start mb-2">
                           <h3 className="text-lg font-semibold">{item.name}</h3>
-                          <span className="text-lg font-bold text-primary">{item.price}</span>
+                          {/* <span className="text-lg font-bold text-primary">{item.price}</span> */}
                         </div>
                         <p className="text-muted-foreground text-sm">{item.description}</p>
                       </div>
