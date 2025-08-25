@@ -23,6 +23,8 @@ const Home = () => {
       }
     }
   };
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [carouselApi, setCarouselApi] = useState(null);
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -136,6 +138,26 @@ const Home = () => {
     { number: counters.satisfaction + "%", label: "Satisfaction" }
   ];
 
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    const onSelect = () => {
+      setCurrentSlide(carouselApi.selectedScrollSnap());
+    };
+
+    carouselApi.on('select', onSelect);
+    onSelect(); // Set initial slide
+
+    return () => {
+      carouselApi.off('select', onSelect);
+    };
+  }, [carouselApi]);
+  const scrollToSlide = (index) => {
+    if (carouselApi) {
+      carouselApi.scrollTo(index);
+    }
+  };
+
   // const stats = [
   //   { number: "15+", label: "Years Experience" },
   //   { number: "10+", label: "Outlets" },
@@ -146,8 +168,13 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
+      
       <section className="relative h-screen">
-        <Carousel className="h-full" opts={{ loop: true, }}>
+        <Carousel 
+          className="h-full" 
+          opts={{ loop: true }}
+          setApi={setCarouselApi}
+        >
           <CarouselContent className="h-full" >
             {heroImages.map((hero, index) => (
               <CarouselItem key={index} className="h-screen">
@@ -200,13 +227,27 @@ const Home = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-4 bg-white/20 border-white/30 text-white hover:bg-white/30" />
-          <CarouselNext className="right-4 bg-white/20 border-white/30 text-white hover:bg-white/30" />
         </Carousel>
+
+        {/* Dots Navigation */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex justify-center space-x-3">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => scrollToSlide(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentSlide === index
+                  ? 'bg-white scale-125 shadow-lg'
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
 
         {/* Scroll Indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+          className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-10"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
         >
@@ -462,7 +503,12 @@ const Home = () => {
             </p>
           </motion.div>
           <motion.div variants={itemVariants} className="relative">
-            <Carousel className="w-full" opts={{ align: "center", loop: true }} plugins={[AutoPlay({ delay: 3000 })]}>
+            <Carousel 
+              className="w-full" 
+              opts={{ align: "center", loop: true }} 
+              plugins={[AutoPlay({ delay: 5000 })]}
+              setApi={setCarouselApi}
+            >
               <CarouselContent className="-ml-2 md:-ml-4">
                 {[
                   {
@@ -519,9 +565,23 @@ const Home = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
             </Carousel>
+
+            {/* Dots Navigation for Customer Feedback */}
+            <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex justify-center space-x-3 pb-4">
+              {[...Array(5)].map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => scrollToSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    currentSlide === index
+                      ? 'bg-primary scale-125 shadow-lg'
+                      : 'bg-primary/50 hover:bg-primary/75'
+                  }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       </section>

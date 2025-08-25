@@ -13,6 +13,8 @@ import Outlets from "./pages/Outlets";
 import Franchise from "./pages/Franchise";
 import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./pages/ScrollToTop";
+import ScrollToTopOnRouteChange from "./pages/ScrollToTopRouteChange";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +25,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <div className="min-h-screen flex flex-col">
+          <ScrollToTopOnRouteChange />
           <Header />
           <main className="flex-1">
             <Routes>
@@ -37,6 +40,7 @@ const App = () => (
           </main>
           <Footer />
           {/* <ChatWidget /> */}
+          <ScrollToTop/>
         </div>
       </BrowserRouter>
     </TooltipProvider>
