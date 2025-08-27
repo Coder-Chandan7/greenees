@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Send } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+import { SiZomato, SiSwiggy } from 'react-icons/si';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -74,6 +76,12 @@ const ContactUs = () => {
       name: "Instagram",
       url: "https://www.instagram.com/greenees.surat/",
       color: "text-pink-600"
+    },
+    {
+      icon: FaWhatsapp,
+      name: "WhatsApp",
+      url: "https://wa.me/919825253920", // Replace with your actual WhatsApp number
+      color: "text-[#25D366]"
     }
   ];
 
@@ -109,7 +117,7 @@ const ContactUs = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-warm">
+      <section className="py-20 pb-10 bg-gradient-warm">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -125,7 +133,7 @@ const ContactUs = () => {
       </section>
 
       {/* Contact Information Cards */}
-      <section className="py-20 bg-background">
+      <section className="pt-5 pb-10 bg-background">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -151,7 +159,7 @@ const ContactUs = () => {
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary transition-colors text-sm leading-relaxed"
                       >
-                        Shop 1 & 2, The Park Food Court, Opp: SVNIT, Ichhanath, Umra, Surat - 395007
+                        Shop no 2 to 7 walkway canal near g.d goenka school vesu canal road, Surat, Gujarat 395007
                       </a>
                     </div>
                   </div>
@@ -200,7 +208,7 @@ const ContactUs = () => {
                           href="https://www.facebook.com/greeneesfastfood"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-blue-600 transition-colors"
+                          className="text-blue-600 transition-colors"
                         >
                           <Facebook className="h-5 w-5" />
                         </a>
@@ -208,9 +216,17 @@ const ContactUs = () => {
                           href="https://www.instagram.com/greenees.surat/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-pink-600 transition-colors"
+                          className="text-pink-600 transition-colors"
                         >
                           <Instagram className="h-5 w-5" />
+                        </a>
+                        <a
+                          href="https://wa.me/919825253920"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-green-600 transition-colors"
+                        >
+                          <FaWhatsapp className="h-5 w-5" />
                         </a>
                       </div>
                     </div>
@@ -298,24 +314,7 @@ const ContactUs = () => {
             <motion.div variants={itemVariants} className="space-y-8">
               {/* Map */}
               <Card className="card-warm">
-                <CardContent className="p-0">
-                  {/* <div className="h-64 bg-muted rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                      <p className="text-muted-foreground">
-                        Interactive map would be embedded here
-                      </p>
-                      <Button asChild className="mt-4" variant="outline">
-                        <a 
-                          href="https://maps.app.goo.gl/RUDSm8tEEdffSd7S6"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          View on Google Maps
-                        </a>
-                      </Button>
-                    </div>
-                  </div> */}
+                <CardContent className="p-0">                       
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.3008030121396!2d72.7782941!3d21.140424199999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0530debc20f4f%3A0xf811f46574507566!2sGreenees%20Fast%20Food!5e0!3m2!1sen!2sin!4v1755263889106!5m2!1sen!2sin"
                     width="100%"
@@ -334,32 +333,50 @@ const ContactUs = () => {
               <Card className="card-warm">
                 <CardContent className="p-8">
                   <h3 className="text-xl font-bold text-primary mb-6">Follow Us</h3>
-                  <div className="space-y-4">
+                  <div className="flex items-center justify-start space-x-4">
                     {socialLinks.map((social) => (
                       <a
                         key={social.name}
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-3 p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+                        className="p-2 rounded-full bg-muted/50 hover:bg-muted transition-colors group"
+                        title={social.name}
                       >
                         <social.icon className={`h-6 w-6 ${social.color}`} />
-                        <span className="font-medium">{social.name}</span>
                       </a>
                     ))}
                   </div>
 
                   <div className="mt-8 pt-6 border-t border-border">
-                    <h4 className="font-semibold text-primary mb-3">Quick Links</h4>
-                    <div className="space-y-2 text-sm">
-                      <a href="https://www.zomato.com/greenee-food-truck" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-primary transition-colors">
-                        Order on Zomato
+                    <h3 className="font-bold text-primary mb-3 text-xl">Order On</h3>
+                    <div className="flex items-center justify-start space-x-4">
+                      <a 
+                        href="http://zoma.to/r/21393989" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="p-2 rounded-full bg-muted/50 hover:bg-muted transition-colors group"
+                        title="Order on Zomato"
+                      >
+                        <SiZomato className="h-6 w-6 text-[#E23744]" />
                       </a>
-                      <a href="https://www.swiggy.com/restaurants/greenees-the-park-opp-svnit-athwa-surat-76479" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-primary transition-colors">
-                        Order on Swiggy
+                      <a 
+                        href="https://www.swiggy.com/city/surat/greenees-fast-food-main-road-vesu-rest658759" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="p-2 rounded-full bg-muted/50 hover:bg-muted transition-colors group"
+                        title="Order on Swiggy"
+                      >
+                        <SiSwiggy className="h-6 w-6 text-[#FC8019]" />
                       </a>
-                      <a href="https://wa.me/9825253920" target="_blank" rel="noopener noreferrer" className="block text-muted-foreground hover:text-primary transition-colors">
-                        WhatsApp Us
+                      <a 
+                        href="https://wa.me/9825253920" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="p-2 rounded-full bg-muted/50 hover:bg-muted transition-colors group"
+                        title="WhatsApp Us"
+                      >
+                        <FaWhatsapp className="h-6 w-6 text-[#25D366]" />
                       </a>
                     </div>
                   </div>

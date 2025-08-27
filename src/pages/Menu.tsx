@@ -8,6 +8,26 @@ import heroSnacksSpreadImage from '@/assets/hero-snacks-spread.jpg';
 import heroFoodTruckImage from '@/assets/hero-food-truck.jpg';
 import steamIdliImage from '@/assets/steam-idli.jpg';
 import cheesePizzaImage from '@/assets/cheese-pizza.jpg';
+import pizza4 from '@/assets/menu/pizza_4.jpg'
+import pizza6 from '@/assets/menu/pizza_6.jpg'
+import sandwich6 from '@/assets/menu/sandwitch_6.jpg'
+import sandwich5 from '@/assets/menu/sandwitch_5.jpg'
+import idli from '@/assets/menu/idli.jpg';
+import idli2 from '@/assets/menu/idli_2.jpg';
+import frenchFries from '@/assets/menu/french_fries.jpg';
+import cake from '@/assets/menu/cake.jpg';
+import burger2 from '@/assets/menu/burger_2.jpg';
+import burger9 from '@/assets/menu/burger_9.jpg';
+import coffee from '@/assets/menu/coffee.jpg';
+import chocoCoffee from '@/assets/menu/choco_cofee.jpg';
+import crispySanwich from '@/assets/menu/special.jpg';
+import pizza7 from '@/assets/menu/pizza_7.jpg';
+import pizza3 from '@/assets/menu/pizza_3.jpg';
+import burger7 from '@/assets/menu/burger_7.jpg';
+import coffee2 from '@/assets/menu/coffee_2.jpg';
+import eggRoll from '@/assets/menu/egg_role.jpg';
+import eggRoll3 from '@/assets/menu/egg_role_3.jpg';
+import puff2 from '@/assets/menu/puff_2.jpg';
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -34,10 +54,12 @@ const Menu = () => {
   const categories = [
     { id: 'all', name: 'All', emoji: '🍽️' },
     { id: 'chai', name: 'Chai', emoji: '🍵' },
+    { id: 'coffee', name: 'Coffee', emoji: '☕' },
     { id: 'idli', name: 'Idli', emoji: '🍛' },
     { id: 'pizza', name: 'Pizza', emoji: '🍕' },
+    { id: 'burger', name: 'Burger', emoji: '🍔' },
     { id: 'sandwich', name: 'Sandwich', emoji: '🥪' },
-    { id: 'snacks', name: 'Snacks', emoji: '🍿' }
+    { id: 'snacks', name: 'Snacks', emoji: '🍿' },
   ];
 
   const menuItems = [
@@ -63,7 +85,7 @@ const Menu = () => {
       category: 'idli',
       name: 'Steam Idli',
       description: 'Soft and fluffy steamed idlis famous for their tenderness. Made fresh daily with the finest ingredients for easy digestion.',
-      image: steamIdliImage,
+      image: idli2,
       price: '₹25',
       popular: true
     },
@@ -72,7 +94,7 @@ const Menu = () => {
       category: 'idli',
       name: 'Butter Steam Idli',
       description: 'Our classic steam idlis topped with rich, creamy butter. A delightful combination that melts in your mouth.',
-      image: heroIdliFeastImage,
+      image: idli,
       price: '₹30'
     },
     {
@@ -80,7 +102,7 @@ const Menu = () => {
       category: 'pizza',
       name: 'Cheese Pizza',
       description: 'Fresh and cheesy pizza with premium mozzarella cheese. Crispy base with the perfect amount of tangy tomato sauce.',
-      image: cheesePizzaImage,
+      image: pizza4,
       price: '₹150',
       special: true
     },
@@ -89,7 +111,7 @@ const Menu = () => {
       category: 'pizza',
       name: 'Veg Cheese Pizza',
       description: 'Loaded with fresh vegetables and melted cheese. A colorful and nutritious pizza that satisfies your cravings.',
-      image: cheesePizzaImage,
+      image: pizza6,
       price: '₹180'
     },
     {
@@ -97,7 +119,7 @@ const Menu = () => {
       category: 'sandwich',
       name: 'Veg Sandwich',
       description: 'Fresh vegetables layered between soft bread slices. A healthy and filling option packed with nutrients and flavor.',
-      image: heroSnacksSpreadImage,
+      image: sandwich5,
       price: '₹40'
     },
     {
@@ -105,7 +127,7 @@ const Menu = () => {
       category: 'sandwich',
       name: 'Grilled Sandwich',
       description: 'Perfectly grilled sandwich with a crispy exterior and warm, melted filling. A satisfying meal that hits the spot.',
-      image: heroSnacksSpreadImage,
+      image: sandwich6,
       price: '₹55',
       popular: true
     },
@@ -114,16 +136,104 @@ const Menu = () => {
       category: 'snacks',
       name: 'Mixed Pakoras',
       description: 'Assorted crispy pakoras made with fresh vegetables and aromatic spices. Perfect for sharing with friends and family.',
-      image: heroSnacksSpreadImage,
+      image: frenchFries,
       price: '₹60'
     },
     {
       id: 10,
-      category: 'snacks',
-      name: 'Samosa',
-      description: 'Golden, crispy pastry filled with spiced potatoes and peas. A classic Indian snack that never goes out of style.',
-      image: heroFoodTruckImage,
+      category: 'sandwich',
+      name: 'Brown Sandwich Cake',
+      description: 'Delicious and moist cake available in various flavors. A sweet treat to celebrate any occasion or simply indulge your sweet tooth.',
+      image: cake,
       price: '₹20'
+    },
+    {
+      id: 11,
+      category: 'burger',
+      name: 'Veg Burger',
+      description: 'Juicy vegetable patty with fresh lettuce, tomato, and our special sauce. A delicious burger that satisfies your hunger.',
+      image: burger9,
+    },
+    {
+      id: 12,
+      category: 'burger',
+      name: 'Cheese Burger',
+      description: 'Classic cheeseburger with a melted cheese slice, fresh veggies, and tangy sauce. A timeless favorite for all ages.',
+      image: burger2,
+      special: true
+    },
+    {
+      id: 13,
+      category: 'coffee',
+      name: 'Espresso',
+      description: 'Rich and bold espresso shot made from premium coffee beans. A perfect pick-me-up to start your day.',
+      image: coffee,
+      special: true
+    },
+    {
+      id: 14,
+      category: 'coffee',
+      name: 'Chocolate Coffee',
+      description: 'Chocolate Coffee with a perfect balance of espresso, steamed milk, and froth. A delightful treat for coffee lovers.',
+      image: chocoCoffee,
+      popular: true
+    },
+    {
+      id: 15,
+      category: 'pizza',
+      name: 'Margherita Pizza',
+      description: 'Classic Margherita pizza with fresh tomatoes, mozzarella cheese, and basil leaves. A simple yet flavorful choice.',
+      image: pizza7,
+    },
+    {
+      id: 16,
+      category: 'sandwich',
+      name: 'Crispy Veg Sandwich',
+      description: 'Crispy veg sandwich with a variety of fresh vegetables and a tangy',
+      image: crispySanwich,
+    },
+    {
+      id: 17,
+      category: 'pizza',
+      name: 'Paneer Pizza',
+      description: 'Delicious paneer pizza topped with fresh paneer cubes, vegetables, and a blend of spices. A flavorful twist on traditional pizza.',
+      image: pizza3,
+    },
+    {
+      id: 18,
+      category: 'burger',
+      name: 'Cheese Veg Burger',
+      description: 'A delightful veg burger with a juicy vegetable patty, melted cheese, fresh lettuce, tomato, and our special sauce. A perfect combination of flavors in every bite.',
+      image: burger7,
+    },
+    {
+      id: 19,
+      category: 'coffee',
+      name: 'Cappuccino',
+      description: 'A classic cappuccino made with rich espresso, steamed milk, and a frothy top. A perfect balance of bold coffee flavor and creamy texture.',
+      image: coffee2,
+    },
+    {
+      id: 20,
+      category: 'snacks',
+      name: 'Egg Roll',
+      description: 'A delicious egg roll filled with a savory mixture of eggs, vegetables, and spices. A perfect snack to satisfy your hunger cravings.',
+      image: eggRoll, 
+    },
+    {
+      id: 21,
+      category: 'snacks',
+      name: 'Chicken Egg Roll',
+      description: 'A flavorful chicken egg roll filled with tender chicken, eggs, vegetables, and spices. A perfect snack for meat lovers.',
+      image: eggRoll3,
+      popular: true
+    },
+    {
+      id: 22,
+      category: 'pizza',
+      name: 'Veggie Delight Pizza',
+      description: 'A delightful veggie pizza loaded with fresh vegetables, mozzarella cheese, and a tangy tomato sauce. A healthy and delicious choice for pizza lovers.',
+      image: puff2,
     }
   ];
 
@@ -166,7 +276,7 @@ const Menu = () => {
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   activeCategory === category.id
                     ? 'bg-primary text-primary-foreground shadow-warm'
-                    : 'bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary'
+                    : 'bg-muted text-muted-foreground hover:bg-primary/10 '
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -235,7 +345,7 @@ const Menu = () => {
                   transition={{ delay: index * 0.1 + 0.3 }}
                 >
                   <motion.h3
-                    className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300"
+                    className="text-2xl font-bold mb-3  transition-colors duration-300"
                     whileHover={{ scale: 1.05 }}
                   >
                     {item.name}

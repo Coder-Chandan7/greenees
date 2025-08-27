@@ -12,6 +12,16 @@ import steamIdliImage from '@/assets/steam-idli.jpg';
 import cheesePizzaImage from '@/assets/cheese-pizza.jpg';
 import AutoPlay from 'embla-carousel-autoplay';
 import { useEffect, useRef, useState } from 'react';
+import pizza6 from '@/assets/menu/pizza_6.jpg'
+import sandwich6 from '@/assets/menu/sandwitch_6.jpg'
+import sandwich5 from '@/assets/menu/sandwitch_5.jpg'
+import idli from '@/assets/menu/idli.jpg';
+import idli2 from '@/assets/menu/idli_2.jpg';
+import frenchFries from '@/assets/menu/french_fries.jpg';
+import burger2 from '@/assets/menu/burger_2.jpg';
+import burger9 from '@/assets/menu/burger_9.jpg';
+import pizza7 from '@/assets/menu/pizza_7.jpg';
+import coffee2 from '@/assets/menu/coffee_2.jpg';
 
 const Home = () => {
   const containerVariants = {
@@ -56,7 +66,7 @@ const Home = () => {
   const heroImages = [
     {
       image: heroChaiImage,
-      title: "Chalo Chai Ho Jaaye!",
+      title: "Jahan Dost, Wahan Chai!",
       subtitle: "Gujarat's first food truck serving authentic chai since 2009"
     },
     {
@@ -115,9 +125,9 @@ const Home = () => {
 
     const timer = setInterval(() => {
       currentStep++;
-      
+
       const progress = currentStep / steps;
-      
+
       setCounters({
         years: Math.min(Math.round(10 * progress), 15),
         outlets: Math.min(Math.round(10 * progress), 10),
@@ -168,10 +178,10 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      
+
       <section className="relative h-screen">
-        <Carousel 
-          className="h-full" 
+        <Carousel
+          className="h-full"
           opts={{ loop: true }}
           setApi={setCarouselApi}
         >
@@ -235,11 +245,10 @@ const Home = () => {
             <button
               key={index}
               onClick={() => scrollToSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                currentSlide === index
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
                   ? 'bg-white scale-125 shadow-lg'
                   : 'bg-white/50 hover:bg-white/75'
-              }`}
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -273,14 +282,13 @@ const Home = () => {
 
           <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
             {[
-              { name: "Pizza", description: "14 Restaurants Products", image: "https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=400" },
-              { name: "Broast", description: "4 Restaurants Products", image: "https://images.pexels.com/photos/60616/fried-chicken-chicken-fried-crunchy-60616.jpeg?auto=compress&cs=tinysrgb&w=400" },
-              { name: "Chicken", description: "6 Restaurants Products", image: "https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=400" },
-              { name: "Burgers", description: "18 Restaurants Products", image: "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=400" },
-              { name: "Shakes", description: "23 Restaurants Products", image: "https://images.pexels.com/photos/103566/pexels-photo-103566.jpeg?auto=compress&cs=tinysrgb&w=400" },
-              { name: "Sandwiches", description: "11 Restaurants Products", image: "https://images.pexels.com/photos/1603901/pexels-photo-1603901.jpeg?auto=compress&cs=tinysrgb&w=400" },
-              { name: "Pasta", description: "16 Restaurants Products", image: "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=400" },
-              { name: "Desserts", description: "24 Restaurants Products", image: "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=400" }
+              { name: "Pizza", description: "14 Restaurants Products", image: pizza6 },
+              { name: "Burger", description: "4 Restaurants Products", image: burger9 },
+              { name: "Sandwich", description: "24 Restaurants Products", image: sandwich6 },
+              { name: "Idli", description: "24 Restaurants Products", image: idli2 },
+              { name: "Tea", description: "6 Restaurants Products", image: heroChaiImage },
+              { name: "Coffee", description: "18 Restaurants Products", image: coffee2 },
+              { name: "Snacks", description: "23 Restaurants Products", image: frenchFries },
             ].map((category, index) => (
               <motion.div
                 key={category.name}
@@ -303,7 +311,6 @@ const Home = () => {
                 <h3 className="text-base md:text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                   {category.name}
                 </h3>
-                <p className="text-sm text-muted-foreground">{category.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -349,7 +356,7 @@ const Home = () => {
             <motion.div variants={itemVariants} className="relative">
               <div className="relative rounded-lg overflow-hidden shadow-lg">
                 <img
-                  src="https://media.istockphoto.com/id/1271340986/photo/modern-kitchen-cooks-prepare-meals-on-the-stove-in-the-kitchen-of-the-restaurant-or-hotel-the.jpg?s=1024x1024&w=is&k=20&c=4ZSZP4XH8r3m2kbadvoXiwiNSNtEo9eaUrmuzp4A74g="
+                  src="https://media.istockphoto.com/id/1409730623/photo/business-owner-with-his-staff-at-a-restaurant.webp?a=1&b=1&s=612x612&w=0&k=20&c=GO4MtL2638AaWW7r60TOgUcWW7DAFtR8F8VvrY8WQBY="
                   alt="Our team preparing fresh food with passion"
                   className="w-full h-[350px] object-cover"
                 />
@@ -363,7 +370,7 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
             <div className="bg-card shadow-lg rounded-2xl p-6">
               <div className="flex flex-col items-center">
-                <Store className="w-10 h-10 text-primary mb-3"/>
+                <Store className="w-10 h-10 text-primary mb-3" />
                 <h3 className="text-3xl font-bold text-primary">250+</h3>
                 <p className="mt-2 text-muted-foreground">Total Outlets</p>
               </div>
@@ -404,7 +411,11 @@ const Home = () => {
           </motion.div>
 
           <motion.div variants={itemVariants} className="relative">
-            <Carousel className="w-full" opts={{ align: "start", loop: true }}>
+            <Carousel
+              className="w-full"
+              opts={{ align: "start", loop: true }}
+              setApi={setCarouselApi}
+            >
               <CarouselContent className="-ml-2 md:-ml-4">
                 {[
                   {
@@ -415,13 +426,13 @@ const Home = () => {
                   },
                   {
                     name: "Steam Idli",
-                    image: steamIdliImage,
+                    image: idli,
                     description: "Soft and fluffy steamed idlis",
                     price: "₹40"
                   },
                   {
                     name: "Cheese Pizza",
-                    image: cheesePizzaImage,
+                    image: pizza7,
                     description: "Fresh and cheesy pizza varieties",
                     price: "₹150"
                   },
@@ -432,15 +443,15 @@ const Home = () => {
                     price: "₹20"
                   },
                   {
-                    name: "Vada Sambar",
-                    image: heroIdliFeastImage,
-                    description: "Crispy vadas with sambar",
+                    name: "Special Sandwich",
+                    image: sandwich5,
+                    description: "Crispy sandwiches with fresh veggies",
                     price: "₹35"
                   },
                   {
-                    name: "Mixed Pakoras",
-                    image: heroSnacksSpreadImage,
-                    description: "Assorted crispy pakoras",
+                    name: "Burger",
+                    image: burger2,
+                    description: "Cheese and veggie burgers",
                     price: "₹60"
                   }
                 ].map((item, index) => (
@@ -463,7 +474,6 @@ const Home = () => {
                       <div className="p-4">
                         <div className="flex justify-between items-start mb-2">
                           <h3 className="text-lg font-semibold">{item.name}</h3>
-                          {/* <span className="text-lg font-bold text-primary">{item.price}</span> */}
                         </div>
                         <p className="text-muted-foreground text-sm">{item.description}</p>
                       </div>
@@ -471,9 +481,21 @@ const Home = () => {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
             </Carousel>
+
+            <div className="absolute -bottom-7 left-1/2 transform -translate-x-1/2 z-20 flex justify-center space-x-3 pb-4">
+              {[...Array(6)].map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => scrollToSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
+                      ? 'bg-primary scale-125 shadow-lg'
+                      : 'bg-primary/50 hover:bg-primary/75'
+                    }`}
+                  aria-label={`Go to menu item ${index + 1}`}
+                />
+              ))}
+            </div>
           </motion.div>
 
           <motion.div variants={itemVariants} className="text-center mt-12">
@@ -486,6 +508,7 @@ const Home = () => {
           </motion.div>
         </motion.div>
       </section>
+
 
       {/* Customer Feedback Section */}
       <section className="py-20 bg-gradient-warm">
@@ -503,9 +526,9 @@ const Home = () => {
             </p>
           </motion.div>
           <motion.div variants={itemVariants} className="relative">
-            <Carousel 
-              className="w-full" 
-              opts={{ align: "center", loop: true }} 
+            <Carousel
+              className="w-full"
+              opts={{ align: "center", loop: true }}
               plugins={[AutoPlay({ delay: 5000 })]}
               setApi={setCarouselApi}
             >
@@ -573,11 +596,10 @@ const Home = () => {
                 <button
                   key={index}
                   onClick={() => scrollToSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    currentSlide === index
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
                       ? 'bg-primary scale-125 shadow-lg'
                       : 'bg-primary/50 hover:bg-primary/75'
-                  }`}
+                    }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}

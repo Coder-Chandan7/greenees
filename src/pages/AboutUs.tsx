@@ -34,7 +34,7 @@ const AboutUs = () => {
       name: "Ram Srivasan",
       role: "Co-Founder",
       description: "Experience of more than 15 years in the Food Industry. He manages Finance, Purchase & Negotiation at Greenees.",
-      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://images.unsplash.com/photo-1599834562135-b6fc90e642ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQyfHxtYW58ZW58MHx8MHx8fDA%3D",
       social: {
         twitter: "https://twitter.com/ramsrivasan",
         linkedin: "https://linkedin.com/in/ramsrivasan",
@@ -45,7 +45,7 @@ const AboutUs = () => {
       name: "Rajesh Dubey", 
       role: "Co-Founder",
       description: "Handles Operations, Marketing & Business Development. His vision drives Greenees's expansion across Gujarat.",
-      image: "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://images.unsplash.com/photo-1594672830234-ba4cfe1202dc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTI4fHxtYW58ZW58MHx8MHx8fDA%3D",
       social: {
         twitter: "https://twitter.com/rajeshdubey",
         linkedin: "https://linkedin.com/in/rajeshdubey",
@@ -56,7 +56,7 @@ const AboutUs = () => {
       name: "Keshav Bhatt",
       role: "Co-Founder", 
       description: "Manages Technology, Innovation & Customer Experience. Focuses on modernizing the Greenees experience.",
-      image: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: "https://images.unsplash.com/photo-1615109398623-88346a601842?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWFufGVufDB8fDB8fHww",
       social: {
         twitter: "https://twitter.com/keshavbhatt",
         linkedin: "https://linkedin.com/in/keshavbhatt",
@@ -240,7 +240,7 @@ const AboutUs = () => {
                   year: "2009",
                   title: "The Beginning",
                   event: "Started as Gujarat's first Food Truck",
-                  image: "https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg?auto=compress&cs=tinysrgb&w=400",
+                  image: "https://images.unsplash.com/photo-1565123409695-7b5ef63a2efb?auto=format&fit=crop&w=400&q=80",
                   icon: "🚚",
                   position: "top"
                 },
@@ -248,7 +248,7 @@ const AboutUs = () => {
                   year: "2010", 
                   title: "First Outlet",
                   event: "Opened first outlet in Surat for students",
-                  image: "https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=400",
+                  image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=400&q=80",
                   icon: "🏪",
                   position: "bottom"
                 },
@@ -256,7 +256,7 @@ const AboutUs = () => {
                   year: "2015",
                   title: "Innovation",
                   event: "Moved to Food Court - one of Surat's first",
-                  image: "https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=400",
+                  image: "https://images.unsplash.com/photo-1559329007-40df8a9345d8?auto=format&fit=crop&w=400&q=80",
                   icon: "🏢",
                   position: "top"
                 },
@@ -264,7 +264,7 @@ const AboutUs = () => {
                   year: "2021",
                   title: "Expansion",
                   event: "Started Franchise expansion",
-                  image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
+                  image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=400&q=80",
                   icon: "📈",
                   position: "bottom"
                 },
@@ -272,7 +272,7 @@ const AboutUs = () => {
                   year: "2024",
                   title: "Success",
                   event: "10+ successful franchise outlets",
-                  image: "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=400",
+                  image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=400&q=80",
                   icon: "🎉",
                   position: "top"
                 }

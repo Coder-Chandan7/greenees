@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, MapPin, Phone, Mail } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import greneLogo from '@/assets/greenees-logo.jpeg';
+import { SiSwiggy, SiZomato } from 'react-icons/si';
 
 const Footer = () => {
   const containerVariants = {
@@ -46,25 +48,51 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-primary-foreground/80 text-sm leading-relaxed">
-              Serving the finest chai and delicious snacks since 2009. 
+              Serving the finest chai and delicious snacks since 2009.
               Gujarat's favorite food truck turned into a beloved franchise.
             </p>
             <div className="flex space-x-4">
-              <a 
-                href="https://www.facebook.com/greeneesfastfood" 
-                target="_blank" 
+              <a
+                href="https://www.facebook.com/greeneesfastfood"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                className="text-primary-foreground/80 hover:text-blue-600 transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </a>
-              <a 
-                href="https://www.instagram.com/greenees.surat/" 
-                target="_blank" 
+              <a
+                href="https://www.instagram.com/greenees.surat/"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                className="text-primary-foreground/80 hover:text-pink-600 transition-colors"
               >
                 <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://wa.me/919825253920"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/80 hover:text-green-600 transition-colors"
+              >
+                <FaWhatsapp className="h-5 w-5" />
+              </a>
+              <a
+                href="http://zoma.to/r/21393989"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/80 hover:text-red-600 transition-colors border-white"
+                title="Order on Zomato"
+              >
+                <SiZomato className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.swiggy.com/city/surat/greenees-fast-food-main-road-vesu-rest658759"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/80 hover:text-orange-600 transition-colors"
+                title="Order on Swiggy"
+              >
+                <SiSwiggy className="h-5 w-5" />
               </a>
             </div>
           </motion.div>
@@ -81,7 +109,7 @@ const Footer = () => {
                 { name: 'Contact Us', path: '/contact-us' },
               ].map((link) => (
                 <li key={link.name}>
-                  <Link 
+                  <Link
                     to={link.path}
                     className="text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm"
                   >
@@ -99,14 +127,12 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 mt-0.5 text-primary-foreground/80" />
                 <span className="text-sm text-primary-foreground/80">
-                  Shop 1 & 2, The Park Food Court,<br />
-                  Opp: SVNIT, Ichhanath, Umra,<br />
-                  Surat - 395007
+                  Shop no 2 to 7 walkway canal near g.d goenka school vesu canal road, Surat, Gujarat 395007
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary-foreground/80" />
-                <a 
+                <a
                   href="tel:+91 1234567890"
                   className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
@@ -115,7 +141,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-primary-foreground/80" />
-                <a 
+                <a
                   href="mailto:greeneessurat@gmail.com"
                   className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
@@ -134,19 +160,19 @@ const Footer = () => {
                 <span>8:00 AM - 11:00 PM</span>
               </div>
               <div className="mt-4">
-                <p className="font-medium text-primary-foreground">Chalo Chai Ho Jaaye!</p>
+                <p className="font-medium text-primary-foreground">Jahan Dost, Wahan Chai!</p>
               </div>
             </div>
           </motion.div>
         </div>
 
         {/* Bottom Bar */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="border-t border-primary-foreground/20 mt-8 pt-6 text-center"
         >
           <p className="text-sm text-primary-foreground/80">
-            © 2024 Greenees. All rights reserved. | Made with ❤️ for chai lovers
+            © 2025 Greenees. All rights reserved. | Made with ❤️ for chai lovers
           </p>
         </motion.div>
       </motion.div>

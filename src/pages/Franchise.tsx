@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Check, Phone, DollarSign, TrendingUp, Users, Award, ArrowRight } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -378,17 +379,20 @@ const Franchise = () => {
               {
                 name: "Rajesh Patel",
                 location: "Adajan Franchise",
-                quote: "Best decision I made! Greenees's support system is incredible and the returns are fantastic."
+                quote: "Best decision I made! Greenees's support system is incredible and the returns are fantastic.",
+                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200"
               },
               {
                 name: "Priya Shah",
                 location: "Pal Franchise", 
-                quote: "The brand recognition is amazing. Customers love our chai and keep coming back!"
+                quote: "The brand recognition is amazing. Customers love our chai and keep coming back!",
+                image: "https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?auto=format&fit=crop&q=80&w=200&h=200"
               },
               {
                 name: "Amit Mehta",
                 location: "Navsari Franchise",
-                quote: "Low investment, high profits, and complete guidance. What more can you ask for?"
+                quote: "Low investment, high profits, and complete guidance. What more can you ask for?",
+                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200&h=200"
               }
             ].map((testimonial, index) => (
               <motion.div
@@ -397,12 +401,16 @@ const Franchise = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6"
+                className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6 flex flex-col h-full"
               >
-                <p className="italic mb-4 opacity-90">"{testimonial.quote}"</p>
-                <div>
-                  <p className="font-semibold">{testimonial.name}</p>
-                  <p className="text-sm opacity-75">{testimonial.location}</p>
+                <p className="italic mb-auto opacity-90 flex-grow">"{testimonial.quote}"</p>
+                <div className="flex flex-col items-center mt-6">
+                  <Avatar className="h-16 w-16 mb-3 border-2 border-primary-foreground/20">
+                    <AvatarImage src={testimonial.image} alt={testimonial.name} />
+                    <AvatarFallback>{testimonial.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                  </Avatar>
+                  <p className="font-semibold text-base">{testimonial.name}</p>
+                  <p className="text-sm opacity-75 mt-1">{testimonial.location}</p>
                 </div>
               </motion.div>
             ))}
