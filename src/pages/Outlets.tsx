@@ -3,6 +3,7 @@ import { MapPin, Phone, Clock, ExternalLink, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { useEffect, useRef } from 'react';
+import greeneesLogo from '@/assets/greenees-logo.jpeg';
 
 declare global {
   interface Window {
@@ -49,7 +50,7 @@ const Outlets = () => {
     {
       name: "Vesu (VIP High Street & Near Reliance Market), Surat",
       city: "Surat",
-      address: "Vesu, Surat, Gujarat",
+      address: "4QRH+48V Nandanvan, G-5, VIP HIGHSTREET, Nr, Second VIP Rd, Vesu, Surat, Gujarat 395007",
       phone: "+91 12345 67890",
       mapUrl: "https://goo.gl/maps/your-link-here",
       timing: "8:00 AM - 11:00 PM",
@@ -394,7 +395,7 @@ const Outlets = () => {
                       <div className="flex items-center justify-between gap-4">
                         <h3 className="font-semibold text-lg text-primary">{outlet.name}</h3>
                         <img 
-                          src="/src/assets/greenees-logo.jpeg" 
+                          src={greeneesLogo} 
                           alt="Greenees Logo" 
                           className="w-12 h-12 object-contain rounded-full"
                         />
