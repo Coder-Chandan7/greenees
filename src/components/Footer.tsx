@@ -53,7 +53,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://www.facebook.com/greeneesfastfood"
+                href="https://www.facebook.com/share/1Jac3XVQZi/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary-foreground/80 hover:text-blue-600 transition-colors"
@@ -61,7 +61,7 @@ const Footer = () => {
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="https://www.instagram.com/greenees.surat/"
+                href="https://www.instagram.com/greenees_vesu/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary-foreground/80 hover:text-pink-600 transition-colors"
@@ -69,7 +69,7 @@ const Footer = () => {
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="https://wa.me/919825253920"
+                href="https://wa.me/918200458206"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary-foreground/80 hover:text-green-600 transition-colors"
@@ -133,10 +133,10 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary-foreground/80" />
                 <a
-                  href="tel:+91 1234567890"
+                  href="tel:+91 8200458206"
                   className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  +91 123 456 7890
+                  +91 820 045 8206
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -160,7 +160,7 @@ const Footer = () => {
                 <span>8:00 AM - 11:00 PM</span>
               </div>
               <div className="mt-4">
-                <p className="font-medium text-primary-foreground">Jahan Dost, Wahan Chai!</p>
+                <p className="font-medium text-primary-foreground">Jaha Dost, Waha Chai!</p>
               </div>
             </div>
           </motion.div>

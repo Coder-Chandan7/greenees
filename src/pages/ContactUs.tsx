@@ -68,19 +68,19 @@ const ContactUs = () => {
     {
       icon: Facebook,
       name: "Facebook",
-      url: "https://www.facebook.com/greeneesfastfood",
+      url: "https://www.facebook.com/share/1Jac3XVQZi/",
       color: "text-blue-600"
     },
     {
       icon: Instagram,
       name: "Instagram",
-      url: "https://www.instagram.com/greenees.surat/",
+      url: "https://www.instagram.com/greenees_vesu/",
       color: "text-pink-600"
     },
     {
       icon: FaWhatsapp,
       name: "WhatsApp",
-      url: "https://wa.me/919825253920", // Replace with your actual WhatsApp number
+      url: "https://wa.me/918200458206",
       color: "text-[#25D366]"
     }
   ];
@@ -205,7 +205,7 @@ const ContactUs = () => {
                       <h3 className="font-semibold text-lg text-primary mb-2">Follow Us</h3>
                       <div className="flex space-x-3">
                         <a
-                          href="https://www.facebook.com/greeneesfastfood"
+                          href="https://www.facebook.com/share/1Jac3XVQZi/"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-blue-600 transition-colors"
@@ -213,7 +213,7 @@ const ContactUs = () => {
                           <Facebook className="h-5 w-5" />
                         </a>
                         <a
-                          href="https://www.instagram.com/greenees.surat/"
+                          href="https://www.instagram.com/greenees_vesu/"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-pink-600 transition-colors"
@@ -221,7 +221,7 @@ const ContactUs = () => {
                           <Instagram className="h-5 w-5" />
                         </a>
                         <a
-                          href="https://wa.me/919825253920"
+                          href="https://wa.me/918200458206"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-green-600 transition-colors"

@@ -341,8 +341,7 @@ const Outlets = () => {
           className="container mx-auto px-4"
         >
           <motion.div variants={itemVariants} className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Our Gujarat Tour</h2>
-            <p className="text-gray-600">Explore our journey across Gujarat</p>
+            <h2 className="text-4xl font-bold text-primary mb-4">Our Presence</h2>
           </motion.div>
           <div className='relative'>
             <motion.div

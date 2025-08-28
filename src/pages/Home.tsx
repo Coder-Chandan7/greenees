@@ -66,7 +66,7 @@ const Home = () => {
   const heroImages = [
     {
       image: heroChaiImage,
-      title: "Jahan Dost, Wahan Chai!",
+      title: "Jaha Dost, Waha Chai!",
       subtitle: "Gujarat's first food truck serving authentic chai since 2009"
     },
     {
@@ -327,7 +327,7 @@ const Home = () => {
       </section>
 
       {/* About Preview Section */}
-      <section className="py-20 bg-gradient-warm relative">
+      <section className="py-20 relative bg-muted/50">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -343,9 +343,7 @@ const Home = () => {
                 Our Story, Our Passion
               </h2>
               <p className="text-lg leading-relaxed text-muted-foreground">
-                At FastBite, we believe in serving joy with every meal. From our humble
-                beginnings, we’ve focused on fresh ingredients, innovative recipes, and
-                lightning-fast service. Discover the passion behind your favorite dishes!
+                Greenees was born in Surat with a simple belief — good food should be fresh, fun, and full of energy. We set out to create a place where people can come together, enjoy wholesome flavors, and feel the joy of eating clean. With fresh ingredients, creative recipes, and a love for good living, every plate we serve is our way of spreading happiness — one bite at a time.
               </p>
               <Button className="mt-6">
                 <Link to="/about-us">Learn More About Us</Link>
@@ -511,7 +509,7 @@ const Home = () => {
 
 
       {/* Customer Feedback Section */}
-      <section className="py-20 bg-gradient-warm">
+      <section className="py-20 bg-muted/50">
         <motion.div
           variants={containerVariants}
           initial="hidden"

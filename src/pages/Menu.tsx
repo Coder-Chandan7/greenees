@@ -244,7 +244,7 @@ const Menu = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="pt-20 pb-0 bg-gradient-warm">
+      <section className="py-20 bg-gradient-warm">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
