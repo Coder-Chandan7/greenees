@@ -15,6 +15,7 @@ import ContactUs from "./pages/ContactUs";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./pages/ScrollToTop";
 import ScrollToTopOnRouteChange from "./pages/ScrollToTopRouteChange";
+import SecondaryHeader from "./components/SecondaryHeader";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
         <div className="min-h-screen flex flex-col">
           <ScrollToTopOnRouteChange />
           <Header />
+          <SecondaryHeader/>
           <main className="flex-1">
             <Routes>
               <Route path="/" element={<Home />} />

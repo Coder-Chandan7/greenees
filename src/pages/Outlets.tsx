@@ -169,9 +169,9 @@ const Outlets = () => {
           .bindTooltip(outlet.name, {
             permanent: false,
             direction: "top",
-            className: "leaflet-custom-tooltip"
+            className: "leaflet-custom-tooltip text-green-800 font-semibold"
           })
-          .bindPopup(`<div class="leaflet-custom-popup"><b>${outlet.name}</b></div>`);
+          // .bindPopup(`<div class="leaflet-custom-popup"><b>${outlet.name}</b></div>`);
       });
 
       // Draw line connecting all outlets
