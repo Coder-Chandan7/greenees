@@ -137,13 +137,6 @@ const Outlets = () => {
     }
   ];
 
-
-  const cities = [
-    { name: "Surat", count: 10 },
-    { name: "Navsari", count: 1 },
-    { name: "Coming Soon", count: "More cities" }
-  ];
-
   useEffect(() => {
     // Check if Leaflet is available
     if (typeof L !== 'undefined' && mapRef.current && !mapInstance.current) {
@@ -207,7 +200,7 @@ const Outlets = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-warm">
+      <section className="py-20 bg-gradient-warm ">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -222,145 +215,8 @@ const Outlets = () => {
         </motion.div>
       </section>
 
-      {/* Cities Overview */}
-      {/* <section className="py-16 bg-background">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="container mx-auto px-4"
-        >
-          <motion.div variants={itemVariants} className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary mb-4">Our Presence</h2>
-            <p className="text-muted-foreground">Growing across Gujarat, one city at a time</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            {cities.map((city, index) => (
-              <motion.div
-                key={city.name}
-                variants={itemVariants}
-                className="text-center"
-              >
-                <Card className="card-warm">
-                  <CardContent className="pt-8 pb-8">
-                    <div className="text-4xl mb-4">🏪</div>
-                    <h3 className="text-xl font-semibold mb-2">{city.name}</h3>
-                    <p className="text-2xl font-bold text-primary">{city.count}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {typeof city.count === 'number' ? 'Outlets' : ''}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section> */}
-
-      {/* Gujarat tour map */}
-      {/* <section className='py-14 bg-muted/50'>
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="container mx-auto px-4"
-        >
-          <motion.div variants={itemVariants} className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Our Gujarat Tour</h2>
-            <p className="text-muted-foreground">Explore our journey across Gujarat</p>
-          </motion.div>
-          <div className='relative'>
-            <motion.div
-              variants={itemVariants}
-              className='rounded-2xl shadow-xl overflow-hidden'
-            >
-              <div className='h-96 md:h-[500px] relative'>
-                <ComposableMap
-                  projection="geoMercator"
-                  projectionConfig={{ scale: 6000, center: [72.8, 21.5] }}
-                  className="w-full h-full"
-                >
-                  <Geographies geography={gujaratGeoJson}>
-                    {({ geographies }) =>
-                      geographies.map((geo) => (
-                        <Geography
-                          key={geo.rsmKey}
-                          geography={geo}
-                          fill="#E0F7FA"
-                          stroke="#B2EBF2"
-                          strokeWidth={0.5}
-                          style={{
-                            default: {
-                              fill: "#f0fdf4",
-                              stroke: "#22c55e",
-                              strokeWidth: 0.5,
-                              outline: "none",
-                            },
-                            hover: {
-                              fill: "#dcfce7",
-                              stroke: "#16a34a",
-                              strokeWidth: 1,
-                              outline: "none",
-                            },
-                            pressed: {
-                              fill: "#bbf7d0",
-                              stroke: "#15803d",
-                              strokeWidth: 1,
-                              outline: "none",
-                            },
-                          }}
-                        />
-                      ))
-                    }
-                  </Geographies>
-                  {outlets.map((outlet, index) => (
-                    <Marker
-                      key={index}
-                      coordinates={outlet.coordinates}
-                    >
-                      <circle r={4} fill="#FF5722" />
-                      <text textAnchor="middle" y={-10} style={{ fontSize: '12px', fill: '#000' }}>
-                        {outlet.name}
-                      </text>
-                    </Marker>
-                  ))}
-                </ComposableMap>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-    </section> */}
-      <section className='py-14 pb-10 bg-muted/50'>
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="container mx-auto px-4"
-        >
-          <motion.div variants={itemVariants} className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Our Presence</h2>
-          </motion.div>
-          <div className='relative'>
-            <motion.div
-              variants={itemVariants}
-              className='rounded-2xl shadow-xl overflow-hidden'
-            >
-              <div
-                ref={mapRef}
-                className='h-96 md:h-[500px] w-full rounded-2xl'
-                style={{ minHeight: '400px' }}
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
-
       {/* Outlets Grid */}
-      <section className="py-20 bg-gradient-primary/10">
+      <section className="pt-0 pb-10 bg-gradient-primary/10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -379,7 +235,8 @@ const Outlets = () => {
                 key={outlet.name}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02 }}
-                className="relative"
+                className="relative cursor-pointer"
+                onClick={outlet.mapUrl ? () => window.open(outlet.mapUrl, '_blank') : undefined}
               >
                 <Card className={`card-warm h-full ${outlet.isMain ? 'ring-2 ring-primary' : ''}`}>
                   <CardContent className="p-6">
@@ -402,7 +259,7 @@ const Outlets = () => {
                       </div>
 
                       <div className="space-y-3 text-sm text-muted-foreground">
-                        <div className="flex items-center space-x-4 rounded-lg">
+                        {/* <div className="flex items-center space-x-4 rounded-lg">
                           <img
                             src={outlet.ownerImg}
                             alt={outlet.owner}
@@ -412,7 +269,7 @@ const Outlets = () => {
                             <p className="font-medium text-foreground">{outlet.owner}</p>
                             <p className="text-xs text-muted-foreground">Owner</p>
                           </div>
-                        </div>
+                        </div> */}
 
                         <div className="flex items-start space-x-2">
                           <MapPin className="h-4 w-4 mt-0.5 text-primary flex-shrink-0" />
@@ -458,6 +315,33 @@ const Outlets = () => {
                 </Card>
               </motion.div>
             ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Gujarat tour map */}
+      <section className='py-14 pb-10 bg-muted/50'>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="container mx-auto px-4"
+        >
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-primary mb-4">Our Presence</h2>
+          </motion.div>
+          <div className='relative'>
+            <motion.div
+              variants={itemVariants}
+              className='rounded-2xl shadow-xl overflow-hidden'
+            >
+              <div
+                ref={mapRef}
+                className='h-96 md:h-[500px] w-full rounded-2xl z-0'
+                style={{ minHeight: '400px' }}
+              />
+            </motion.div>
           </div>
         </motion.div>
       </section>

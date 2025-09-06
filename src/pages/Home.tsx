@@ -22,6 +22,7 @@ import burger2 from '@/assets/menu/burger_2.jpg';
 import burger9 from '@/assets/menu/burger_9.jpg';
 import pizza7 from '@/assets/menu/pizza_7.jpg';
 import coffee2 from '@/assets/menu/coffee_2.jpg';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const Home = () => {
   const containerVariants = {
@@ -246,8 +247,8 @@ const Home = () => {
               key={index}
               onClick={() => scrollToSlide(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
-                  ? 'bg-white scale-125 shadow-lg'
-                  : 'bg-white/50 hover:bg-white/75'
+                ? 'bg-white scale-125 shadow-lg'
+                : 'bg-white/50 hover:bg-white/75'
                 }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -487,8 +488,8 @@ const Home = () => {
                   key={index}
                   onClick={() => scrollToSlide(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
-                      ? 'bg-primary scale-125 shadow-lg'
-                      : 'bg-primary/50 hover:bg-primary/75'
+                    ? 'bg-primary scale-125 shadow-lg'
+                    : 'bg-primary/50 hover:bg-primary/75'
                     }`}
                   aria-label={`Go to menu item ${index + 1}`}
                 />
@@ -504,6 +505,60 @@ const Home = () => {
               </Link>
             </Button>
           </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-gradient-primary text-primary-foreground">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="container mx-auto px-4 text-center"
+        >
+          <h2 className="text-4xl font-bold mb-12">What Our Franchise Partners Says </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Rajesh Patel",
+                location: "Adajan Franchise",
+                quote: "Best decision I made! Greenees's support system is incredible and the returns are fantastic.",
+                image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200&h=200"
+              },
+              {
+                name: "Priya Shah",
+                location: "Pal Franchise",
+                quote: "The brand recognition is amazing. Customers love our chai and keep coming back!",
+                image: "https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?auto=format&fit=crop&q=80&w=200&h=200"
+              },
+              {
+                name: "Amit Mehta",
+                location: "Navsari Franchise",
+                quote: "Low investment, high profits, and complete guidance. What more can you ask for?",
+                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200&h=200"
+              }
+            ].map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-6 flex flex-col h-full"
+              >
+                <p className="italic mb-auto opacity-90 flex-grow">"{testimonial.quote}"</p>
+                <div className="flex flex-col items-center mt-6">
+                  <Avatar className="h-16 w-16 mb-3 border-2 border-primary-foreground/20">
+                    <AvatarImage src={testimonial.image} alt={testimonial.name} />
+                    <AvatarFallback>{testimonial.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                  </Avatar>
+                  <p className="font-semibold text-base">{testimonial.name}</p>
+                  <p className="text-sm opacity-75 mt-1">{testimonial.location}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </section>
 
@@ -595,8 +650,8 @@ const Home = () => {
                   key={index}
                   onClick={() => scrollToSlide(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
-                      ? 'bg-primary scale-125 shadow-lg'
-                      : 'bg-primary/50 hover:bg-primary/75'
+                    ? 'bg-primary scale-125 shadow-lg'
+                    : 'bg-primary/50 hover:bg-primary/75'
                     }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />

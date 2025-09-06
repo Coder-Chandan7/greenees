@@ -66,14 +66,13 @@ const Franchise = () => {
   ];
 
   const support = [
+    "No Royalty Options",
     "Kitchen Planning & Setup",
-    "Sales & Marketing Training", 
-    "Technology Integration",
-    "Logistics & Supply Chain",
     "Vendor Management Support",
     "Manpower Training",
     "Brand Marketing Materials",
-    "Ongoing Operational Support"
+    "Ongoing Operational Support",
+    "Brand Marketing Materials on Paid Basis"
   ];
 
   const requirements = [
@@ -137,9 +136,9 @@ const Franchise = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" variant="secondary">
-              <a href="tel:+919825253920" className="flex items-center">
+              <a href="tel:+918200458206" className="flex items-center">
                 <Phone className="mr-2 h-5 w-5" />
-                Call Us: +91 12345 67890
+                Call Us: +91 820 045 8206
               </a>
             </Button>
             <Button 
@@ -151,90 +150,6 @@ const Franchise = () => {
               Get a Callback
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20 bg-background">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="container mx-auto px-4"
-        >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary mb-4">Franchise Benefits</h2>
-            <p className="text-xl text-muted-foreground">Why choose Greenees for your business venture</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={benefit.title}
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                className="text-center"
-              >
-                <Card className="card-warm h-full">
-                  <CardContent className="pt-8 pb-8">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                      <benefit.icon className="h-8 w-8 text-primary-foreground" />
-                    </div>
-                    <h3 className="text-lg font-semibold mb-3 text-primary">{benefit.title}</h3>
-                    <p className="text-muted-foreground text-sm">{benefit.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Support & Requirements */}
-      <section className="py-20 bg-muted/50">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="container mx-auto px-4"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Support */}
-            <motion.div variants={itemVariants}>
-              <Card className="card-warm h-full">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-primary mb-6">Complete Support System</h3>
-                  <div className="space-y-3">
-                    {support.map((item, index) => (
-                      <div key={index} className="flex items-center space-x-3">
-                        <Check className="h-5 w-5 text-secondary flex-shrink-0" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Requirements */}
-            <motion.div variants={itemVariants}>
-              <Card className="card-warm h-full">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-primary mb-6">Basic Requirements</h3>
-                  <div className="space-y-3">
-                    {requirements.map((item, index) => (
-                      <div key={index} className="flex items-center space-x-3">
-                        <Check className="h-5 w-5 text-primary flex-shrink-0" />
-                        <span className="text-muted-foreground">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
           </div>
         </motion.div>
       </section>
@@ -361,6 +276,90 @@ const Franchise = () => {
               </CardContent>
             </Card>
           </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="py-20 bg-background">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="container mx-auto px-4"
+        >
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-primary mb-4">Franchise Benefits</h2>
+            <p className="text-xl text-muted-foreground">Why choose Greenees for your business venture</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={benefit.title}
+                variants={itemVariants}
+                whileHover={{ scale: 1.05 }}
+                className="text-center"
+              >
+                <Card className="card-warm h-full">
+                  <CardContent className="pt-8 pb-8">
+                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                      <benefit.icon className="h-8 w-8 text-primary-foreground" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-3 text-primary">{benefit.title}</h3>
+                    <p className="text-muted-foreground text-sm">{benefit.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Support & Requirements */}
+      <section className="py-20 bg-muted/50">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="container mx-auto px-4"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Support */}
+            <motion.div variants={itemVariants}>
+              <Card className="card-warm h-full">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold text-primary mb-6">Complete Support System</h3>
+                  <div className="space-y-3">
+                    {support.map((item, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <Check className="h-5 w-5 text-secondary flex-shrink-0" />
+                        <span className="text-muted-foreground">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Requirements */}
+            <motion.div variants={itemVariants}>
+              <Card className="card-warm h-full">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold text-primary mb-6">Basic Requirements</h3>
+                  <div className="space-y-3">
+                    {requirements.map((item, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <Check className="h-5 w-5 text-primary flex-shrink-0" />
+                        <span className="text-muted-foreground">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
         </motion.div>
       </section>
 
