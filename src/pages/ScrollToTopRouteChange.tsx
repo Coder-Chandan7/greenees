@@ -2,16 +2,26 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const ScrollToTopOnRouteChange = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // Scroll to top when route changes
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant', // Use instant for immediate scroll on route change
-    });
-  }, [pathname]);
+    // If there's a hash, scroll to the element after a small delay to ensure rendering
+    if (hash) {
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // If no hash, scroll to top
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant',
+      });
+    }
+  }, [pathname, hash]);
 
   return null;
 };

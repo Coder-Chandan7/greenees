@@ -23,7 +23,12 @@ import burger9 from '@/assets/menu/burger_9.jpg';
 import pizza7 from '@/assets/menu/pizza_7.jpg';
 import coffee2 from '@/assets/menu/coffee_2.jpg';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-
+import burgerCategory from '@/assets/category/burger.jpg';
+import pizzaCategory from '@/assets/category/pizza.jpg';
+import sandwichCategory from '@/assets/category/sandwich.jpg';
+import teaCategory from '@/assets/category/tea.jpg';
+import coffeeCategory from '@/assets/category/coffee.jpg';
+import snacksCategory from '@/assets/category/snacks.jpg';
 const Home = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -283,13 +288,13 @@ const Home = () => {
 
           <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
             {[
-              { name: "Pizza", description: "14 Restaurants Products", image: pizza6 },
-              { name: "Burger", description: "4 Restaurants Products", image: burger9 },
-              { name: "Sandwich", description: "24 Restaurants Products", image: sandwich6 },
+              { name: "Pizza", description: "14 Restaurants Products", image: pizzaCategory },
+              { name: "Burger", description: "4 Restaurants Products", image: burgerCategory },
+              { name: "Sandwich", description: "24 Restaurants Products", image: sandwichCategory },
               { name: "Idli", description: "24 Restaurants Products", image: idli2 },
-              { name: "Tea", description: "6 Restaurants Products", image: heroChaiImage },
-              { name: "Coffee", description: "18 Restaurants Products", image: coffee2 },
-              { name: "Snacks", description: "23 Restaurants Products", image: frenchFries },
+              { name: "Tea", description: "6 Restaurants Products", image: teaCategory },
+              { name: "Coffee", description: "18 Restaurants Products", image: coffeeCategory },
+              { name: "Snacks", description: "23 Restaurants Products", image: snacksCategory },
             ].map((category, index) => (
               <motion.div
                 key={category.name}

@@ -84,7 +84,7 @@ const Franchise = () => {
     "Basic business understanding"
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Basic validation
@@ -97,22 +97,49 @@ const Franchise = () => {
       return;
     }
 
-    toast({
-      title: "Application Submitted!",
-      description: "Thank you for your interest. We'll get back to you shortly.",
-    });
 
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      state: '',
-      city: '',
-      hasLocation: '',
-      business: '',
-      remarks: ''
-    });
+    try {
+      const url = "https://script.google.com/macros/s/AKfycby_QDlu91glmcKq7hhFL0P_zGeaYCLZwzfdLm4-Wp84P4yeGrXxtX9sdbQ5zT19EJkUAw/exec";
+      const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+          ...formData,
+          date: new Date().toLocaleDateString('en-GB'),
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      });
+
+      const result = await response.json();
+      if (result.status === 'success') {
+        toast({
+          title: "Application Submitted!",
+          description: "Thank you for your interest. We'll get back to you shortly.",
+        });
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          state: '',
+          city: '',
+          hasLocation: '',
+          business: '',
+          remarks: ''
+        });
+      } else {
+        throw new Error(result.message || 'Something went wrong');
+      }
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "There was an error submitting your application. Please try again later.",
+        variant: "destructive"
+      });
+      console.error('Submission error:', error);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -131,7 +158,7 @@ const Franchise = () => {
         >
           <h1 className="text-5xl md:text-6xl font-bold mb-6 font-dancing">Why Greenees?</h1>
           <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-            Join Gujarat's fastest-growing tea chain and become part of our success story. 
+            Join Gujarat's fastest-growing tea chain and become part of our success story.
             Low investment, high returns, and complete support from day one.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -141,8 +168,8 @@ const Franchise = () => {
                 Call Us: +91 820 045 8206
               </a>
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="outline"
               className="border-primary-foreground text-primary hover:bg-primary-foreground hover:text-primary"
               onClick={() => document.getElementById('franchise-form')?.scrollIntoView({ behavior: 'smooth' })}
@@ -166,7 +193,7 @@ const Franchise = () => {
           <motion.div variants={itemVariants} className="text-center mb-12">
             <h2 className="text-4xl font-bold text-primary mb-4">Franchise Enquiry</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Are you looking for a franchise opportunity? Fill out the form below and 
+              Are you looking for a franchise opportunity? Fill out the form below and
               become a part of the fastest-growing tea chain in Gujarat!
             </p>
           </motion.div>
@@ -204,11 +231,17 @@ const Franchise = () => {
                       <Label htmlFor="phone">Phone Number *</Label>
                       <Input
                         id="phone"
-                        type="tel"
+                        type='tel'
                         value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                        placeholder="+91 XXXXX XXXXX"
+                        onChange={(e) => {
+                          const numericValue = e.target.value.replace(/[^0-9]/g, '');
+                          handleInputChange('phone', numericValue);
+                        }}
+                        placeholder='+91 XXXXX XXXXX'
+                        maxLength={10}
                         required
+                        pattern="[0-9]*"
+                        inputMode="numeric"
                       />
                     </div>
                     <div>
@@ -383,7 +416,7 @@ const Franchise = () => {
               },
               {
                 name: "Priya Shah",
-                location: "Pal Franchise", 
+                location: "Pal Franchise",
                 quote: "The brand recognition is amazing. Customers love our chai and keep coming back!",
                 image: "https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?auto=format&fit=crop&q=80&w=200&h=200"
               },

@@ -25,7 +25,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="sticky top-0 z-50 bg-primary/95 backdrop-blur-sm shadow-warm"
+      className="w-full bg-primary/95 backdrop-blur-sm shadow-warm"
     >
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">

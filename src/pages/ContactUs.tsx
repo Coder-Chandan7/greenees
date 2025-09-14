@@ -43,7 +43,7 @@ const ContactUs = () => {
       icon: MapPin,
       title: "Address",
       content: "Shop 1 & 2, The Park Food Court, Opp: SVNIT, Ichhanath, Umra, Surat - 395007",
-      link: "https://maps.app.goo.gl/EwgC7Bm9d5HvA9ZP7"
+      link: "https://maps.app.goo.gl/NQnHbABGEq3Fjck69"
     },
     {
       icon: Phone,
@@ -154,7 +154,7 @@ const ContactUs = () => {
                     <div>
                       <h3 className="font-semibold text-lg text-primary mb-2">Address</h3>
                       <a
-                        href="https://maps.app.goo.gl/EwgC7Bm9d5HvA9ZP7"
+                        href="https://maps.app.goo.gl/NQnHbABGEq3Fjck69"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-muted-foreground hover:text-primary transition-colors text-sm leading-relaxed"

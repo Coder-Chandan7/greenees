@@ -11,7 +11,7 @@ const SecondaryHeader = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: 0.3 }}
-      className="fixed top-[64px] left-0 right-0 z-40 backdrop-blur-md bg-transparent shadow-sm transition-all duration-300 hover:bg-white/40"
+      className="fixed top-[64px] left-0 right-0 z-40 backdrop-blur-md bg-black shadow-sm transition-all duration-300 hover:bg-white/40"
     >
       {/* Background pattern */}
       <motion.div 
@@ -29,7 +29,7 @@ const SecondaryHeader = () => {
       </motion.div>
       
       <div className="container mx-auto px-4 py-3 relative">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-center space-x-6">
           <motion.div
             initial={{ x: -30, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -65,7 +65,7 @@ const SecondaryHeader = () => {
               size="sm"
               className="group bg-primary hover:bg-primary-dark text-primary-foreground hover:text-primary-foreground border-0 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <Link to="/franchise" className="flex items-center space-x-2">
+              <Link to="/franchise/#franchise-form" className="flex items-center space-x-2">
                 <span>Join Us</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
