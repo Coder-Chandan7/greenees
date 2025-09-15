@@ -184,7 +184,6 @@ const Outlets = () => {
 
       // Fit bounds to show all markers
       map.fitBounds(coordsArray);
-
       mapInstance.current = map;
     }
 
@@ -328,19 +327,66 @@ const Outlets = () => {
           viewport={{ once: true }}
           className="container mx-auto px-4"
         >
-          <motion.div variants={itemVariants} className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary mb-4">Our Presence</h2>
-          </motion.div>
-          <div className='relative'>
-            <motion.div
-              variants={itemVariants}
-              className='rounded-2xl shadow-xl overflow-hidden'
-            >
-              <div
-                ref={mapRef}
-                className='h-96 md:h-[500px] w-full rounded-2xl z-0'
-                style={{ minHeight: '400px' }}
-              />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/*Logo and Stats */}
+            <motion.div variants={itemVariants}>
+              <Card className="card-warm h-full">
+                <CardContent className="p-8 flex flex-col items-center justify-center space-y-8 h-full">
+                  {/* Logo Section */}
+                  <div className="flex flex-col items-center space-y-4">
+                    <img 
+                      src={greeneesLogo} 
+                      alt="Greenees Logo" 
+                      className="w-32 h-32 object-contain rounded-full shadow-lg"
+                    />
+                    <div className="text-center">
+                      <h1 className="text-4xl font-bold text-primary font-dancing mb-2">Greenees</h1>
+                      <p className="text-lg text-muted-foreground">Fast Food Chain</p>
+                    </div>
+                  </div>
+                  
+                  {/* Stats Section */}
+                  <div className="bg-muted/30 rounded-2xl p-6 w-full max-w-sm">
+                    <div className="text-center">
+                      <div className="text-6xl font-bold text-primary mb-2">{outlets.length}</div>
+                      <div className="text-xl font-semibold text-foreground mb-2">Total Outlets</div>
+                      <div className="text-sm text-muted-foreground">Across Gujarat</div>
+                    </div>
+                    
+                    <div className="mt-6 pt-6 border-t border-border">
+                      <div className="grid grid-cols-2 gap-4 text-center">
+                        <div>
+                          <div className="text-2xl font-bold text-secondary">8</div>
+                          <div className="text-xs text-muted-foreground">Surat</div>
+                        </div>
+                        <div>
+                          <div className="text-2xl font-bold text-secondary">1</div>
+                          <div className="text-xs text-muted-foreground">Vadodara</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/*Map and Title */}
+            <motion.div variants={itemVariants}>
+              <Card className="card-warm h-full">
+                <CardContent className="p-8 h-full flex flex-col">
+                  <div className="text-center mb-6">
+                    <h2 className="text-4xl font-bold text-primary mb-4">Our Presence</h2>
+                    <p className="text-lg text-muted-foreground">
+                      Serving delicious chai and snacks across Gujarat
+                    </p>
+                  </div>
+                  
+                  <div
+                    ref={mapRef}
+                    className='flex-1 w-full rounded-xl z-0 min-h-[400px]'
+                  />
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </motion.div>

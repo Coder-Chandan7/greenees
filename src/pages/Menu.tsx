@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Badge } from '@/components/ui/badge';
+import { Skeleton } from '@/components/ui/skeleton';
 import heroChaiImage from '@/assets/hero-chai.jpg';
 import heroTeaSpicesImage from '@/assets/hero-tea-spices.jpg';
 import heroIdliFeastImage from '@/assets/hero-idli-feast.jpg';
@@ -31,6 +32,29 @@ import puff2 from '@/assets/menu/puff_2.jpg';
 
 const Menu = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [isLoading, setIsLoading] = useState(true);
+  const [isCategoryLoading, setIsCategoryLoading] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleCategoryChange = (categoryId: string) => {
+    if (categoryId !== activeCategory) {
+      setIsCategoryLoading(true);
+      setActiveCategory(categoryId);
+      
+      // Simulate loading when switching categories
+      const categoryLoadTime = Math.random() * 1000 + 1500; // 1.5-2.5 seconds
+      setTimeout(() => {
+        setIsCategoryLoading(false);
+      }, categoryLoadTime);
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -241,6 +265,67 @@ const Menu = () => {
     ? menuItems 
     : menuItems.filter(item => item.category === activeCategory);
 
+  // Menu Items Grid Skeleton - only for menu items
+  const MenuItemsSkeleton = () => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {Array.from({ length: 9 }).map((_, i) => (
+        <div key={i} className="relative overflow-hidden rounded-2xl shadow-soft">
+          {/* Image Skeleton */}
+          <Skeleton className="h-80 w-full bg-muted/50" />
+          
+          {/* Content Skeleton */}
+          <div className="absolute bottom-0 left-0 right-0 p-6">
+            <Skeleton className="h-8 w-3/4 mb-3 bg-muted/70" />
+            <Skeleton className="h-4 w-full mb-2 bg-muted/70" />
+            <Skeleton className="h-4 w-2/3 bg-muted/70" />
+          </div>
+
+          {/* Badge Skeleton */}
+          <div className="absolute top-4 right-4">
+            <Skeleton className="h-6 w-16 rounded-full bg-muted/70" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen">
+        {/* Show hero and categories normally */}
+        <section className="py-20 bg-gradient-warm">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-5xl md:text-6xl font-bold text-primary mb-6 font-dancing">Our Menu</h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Discover our delicious range of chai, idlis, pizzas, and snacks - 
+              all made fresh with love and served at pocket-friendly prices
+            </p>
+          </div>
+        </section>
+
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-4">
+            {/* Show category filters normally */}
+            <div className="flex flex-wrap justify-center gap-4 mb-16">
+              {categories.map((category) => (
+                <button
+                  key={category.id}
+                  className="px-6 py-3 rounded-full font-medium bg-muted text-muted-foreground"
+                >
+                  <span className="mr-2">{category.emoji}</span>
+                  {category.name}
+                </button>
+              ))}
+            </div>
+
+            {/* Only skeleton for menu items */}
+            <MenuItemsSkeleton />
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -272,7 +357,7 @@ const Menu = () => {
             {categories.map((category) => (
               <motion.button
                 key={category.id}
-                onClick={() => setActiveCategory(category.id)}
+                onClick={() => handleCategoryChange(category.id)}
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   activeCategory === category.id
                     ? 'bg-primary text-primary-foreground shadow-warm'
@@ -288,13 +373,16 @@ const Menu = () => {
           </motion.div>
 
           {/* Menu Items Grid */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          >
-            {filteredItems.map((item, index) => (
+          {isCategoryLoading ? (
+            <MenuItemsSkeleton />
+          ) : (
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            >
+              {filteredItems.map((item, index) => (
               <motion.div
                 key={item.id}
                 variants={itemVariants}
@@ -364,8 +452,9 @@ const Menu = () => {
                 {/* Hover Effect Border */}
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 rounded-2xl transition-colors duration-300" />
               </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </motion.div>
+          )}
 
           {/* Empty State */}
           {filteredItems.length === 0 && (
